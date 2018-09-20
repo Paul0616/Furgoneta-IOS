@@ -881,14 +881,14 @@ user</string>
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="104.66666666666667"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="BON DE CONSUM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iV6-09-fUp">
-                                            <rect key="frame" x="20" y="11" width="163" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BON DE CONSUM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iV6-09-fUp">
+                                            <rect key="frame" x="20" y="10.999999999999998" width="163" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hca-my-Ve1">
-                                            <rect key="frame" x="20" y="35" width="44" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hca-my-Ve1">
+                                            <rect key="frame" x="20" y="31.333333333333329" width="44" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -963,7 +963,7 @@ user</string>
                                     <outlet property="documentTimeLabel" destination="XxM-qA-DfL" id="HyB-La-Nmr"/>
                                     <outlet property="documentTypeLabel" destination="iV6-09-fUp" id="9dG-v3-E7k"/>
                                     <outlet property="locationLabel" destination="hca-my-Ve1" id="xG7-Sr-LeJ"/>
-                                    <segue destination="Bay-Cn-GxO" kind="show" id="LBI-mR-NIW"/>
+                                    <segue destination="Bay-Cn-GxO" kind="show" identifier="showDocuments" id="LBI-mR-NIW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
