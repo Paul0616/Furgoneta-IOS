@@ -1,0 +1,6 @@
+framework module Pods_Furgoneta {
+  umbrella header "Pods-Furgoneta-umbrella.h"
+
+  export *
+  module * { export * }
+}
