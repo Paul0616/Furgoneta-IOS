@@ -29,6 +29,10 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         documentTableView.dataSource = self
+        documentTypeLabel.text = docType
+        documentIdLabel.text = "Nr. " + String(documentId!)
+        documentDatelabel.text = " din " + documentDate!
+        
         // Do any additional setup after loading the view.
     }
     
@@ -71,27 +75,14 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        if documentTypeId == 1 {
-            guard let cell = documentTableView.dequeueReusableCell(withIdentifier: "SupplyCell", for: indexPath) as? SupplyDocumentTableViewCell else {
-                fatalError("The dequeued cell is not an instance of SupplyDocumentTableViewCell.")
-            }
-            return cell
-            //supplyCell.dayDateLabel.text = documents[indexPath.row].day
-        } else if documentTypeId == 2 {
-            guard let cell = documentTableView.dequeueReusableCell(withIdentifier: "ConsumerBillCell", for: indexPath) as? ConsumerTableViewCell else {
-                fatalError("The dequeued cell is not an instance of ConsumerTableViewCell.")
-            }
-            return cell
-            //supplyCell.dayDateLabel.text = documents[indexPath.row].day
-        } else {
-            guard let cell = documentTableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath) as? InventoryTableViewCell else {
-                fatalError("The dequeued cell is not an instance of InventoryTableViewCell.")
-            }
-            return cell
-            //supplyCell.dayDateLabel.text = documents[indexPath.row].day
-            
-        }
+        let cell1 = documentTableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as? DetailDocumentTableViewCell
+        cell1?.product.text = documentItems[indexPath.row].product
+        cell1?.quantity.text = String(documentItems[indexPath.row].quantity)
+        cell1?.um.text = documentItems[indexPath.row].um
+         cell1?.motivation.text = documentItems[indexPath.row].motivation
+        cell1?.motivation.isHidden = !(documentTypeId == Constants.DOCUMENT_TYPE_CONSUMER)
+        return cell1!
+        //supplyCell.dayDateLabel.text = documents[indexPath.row].day
     }
     
 

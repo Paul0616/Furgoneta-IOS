@@ -8,8 +8,14 @@
 
 import UIKit
 
-class SupplyDocumentTableViewCell: UITableViewCell {
+class DetailDocumentTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var product: UILabel!
+    @IBOutlet weak var motivation: UILabel!
+    @IBOutlet weak var quantity: UILabel!
+    @IBOutlet weak var um: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

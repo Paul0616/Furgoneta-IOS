@@ -42,10 +42,11 @@
 		DA991984215186C500C27CD4 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA991983215186C500C27CD4 /* DocumentTableViewCell.swift */; };
 		DA9919862152A14F00C27CD4 /* DocumentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9919852152A14F00C27CD4 /* DocumentModel.swift */; };
 		DA9919892152CACD00C27CD4 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9919882152CACD00C27CD4 /* DocumentViewController.swift */; };
-		DA99198B2152CCEE00C27CD4 /* SupplyDocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99198A2152CCEE00C27CD4 /* SupplyDocumentTableViewCell.swift */; };
-		DA99198D2152CFB900C27CD4 /* ConsumerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99198C2152CFB900C27CD4 /* ConsumerTableViewCell.swift */; };
-		DA99198F2152CFD000C27CD4 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99198E2152CFD000C27CD4 /* InventoryTableViewCell.swift */; };
+		DA99198B2152CCEE00C27CD4 /* DetailDocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99198A2152CCEE00C27CD4 /* DetailDocumentTableViewCell.swift */; };
 		DA9919912152D5B500C27CD4 /* DocumentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9919902152D5B500C27CD4 /* DocumentItem.swift */; };
+		DA991993215506CF00C27CD4 /* EndDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA991992215506CF00C27CD4 /* EndDayViewController.swift */; };
+		DA9919952155905000C27CD4 /* MonetaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9919942155905000C27CD4 /* MonetaryViewController.swift */; };
+		DA99199921565D0500C27CD4 /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99199821565D0500C27CD4 /* MoneyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,10 +111,11 @@
 		DA991983215186C500C27CD4 /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
 		DA9919852152A14F00C27CD4 /* DocumentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentModel.swift; sourceTree = "<group>"; };
 		DA9919882152CACD00C27CD4 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
-		DA99198A2152CCEE00C27CD4 /* SupplyDocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyDocumentTableViewCell.swift; sourceTree = "<group>"; };
-		DA99198C2152CFB900C27CD4 /* ConsumerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerTableViewCell.swift; sourceTree = "<group>"; };
-		DA99198E2152CFD000C27CD4 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
+		DA99198A2152CCEE00C27CD4 /* DetailDocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDocumentTableViewCell.swift; sourceTree = "<group>"; };
 		DA9919902152D5B500C27CD4 /* DocumentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentItem.swift; sourceTree = "<group>"; };
+		DA991992215506CF00C27CD4 /* EndDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndDayViewController.swift; sourceTree = "<group>"; };
+		DA9919942155905000C27CD4 /* MonetaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetaryViewController.swift; sourceTree = "<group>"; };
+		DA99199821565D0500C27CD4 /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
 		DC279F4B499C07345E042AB4 /* Pods_FurgonetaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FurgonetaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ADEF5C34ECD10F9ADA4904 /* Pods_FurgonetaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FurgonetaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCC79CDD677E9C5DE23365C /* Pods-FurgonetaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurgonetaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FurgonetaUITests/Pods-FurgonetaUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				DA522DE021484EA5007214D1 /* RoleModel.swift */,
 				DA9919852152A14F00C27CD4 /* DocumentModel.swift */,
 				DA9919902152D5B500C27CD4 /* DocumentItem.swift */,
+				DA99199821565D0500C27CD4 /* MoneyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,9 +280,9 @@
 			isa = PBXGroup;
 			children = (
 				DA9919882152CACD00C27CD4 /* DocumentViewController.swift */,
-				DA99198A2152CCEE00C27CD4 /* SupplyDocumentTableViewCell.swift */,
-				DA99198C2152CFB900C27CD4 /* ConsumerTableViewCell.swift */,
-				DA99198E2152CFD000C27CD4 /* InventoryTableViewCell.swift */,
+				DA99198A2152CCEE00C27CD4 /* DetailDocumentTableViewCell.swift */,
+				DA991992215506CF00C27CD4 /* EndDayViewController.swift */,
+				DA9919942155905000C27CD4 /* MonetaryViewController.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -501,13 +504,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA99198B2152CCEE00C27CD4 /* SupplyDocumentTableViewCell.swift in Sources */,
+				DA99198B2152CCEE00C27CD4 /* DetailDocumentTableViewCell.swift in Sources */,
 				DA522DDB2146A596007214D1 /* AddUserViewController.swift in Sources */,
 				DA1D5E7321457B9200D7E787 /* ProductModalViewController.swift in Sources */,
 				DA9919862152A14F00C27CD4 /* DocumentModel.swift in Sources */,
+				DA99199921565D0500C27CD4 /* MoneyModel.swift in Sources */,
 				DA1D5E362142670700D7E787 /* MainViewController.swift in Sources */,
 				DA991982215186AF00C27CD4 /* HeaderTableViewCell.swift in Sources */,
 				DA1D5E6E21453D3E00D7E787 /* ProductTableViewCell.swift in Sources */,
+				DA991993215506CF00C27CD4 /* EndDayViewController.swift in Sources */,
+				DA9919952155905000C27CD4 /* MonetaryViewController.swift in Sources */,
 				DA1D5E6C2145399C00D7E787 /* AddProductsTableViewController.swift in Sources */,
 				DA522DD921469404007214D1 /* UserTableViewCell.swift in Sources */,
 				DA522DD5214690B2007214D1 /* AddUsersTableViewController.swift in Sources */,
@@ -524,10 +530,8 @@
 				DA1D5E342142670700D7E787 /* AppDelegate.swift in Sources */,
 				DA522DCF21467B98007214D1 /* LocationTableViewCell.swift in Sources */,
 				DA1D5E6A214524FE00D7E787 /* AddLocationsTableViewController.swift in Sources */,
-				DA99198F2152CFD000C27CD4 /* InventoryTableViewCell.swift in Sources */,
 				DA522DD32146814A007214D1 /* LocationModel.swift in Sources */,
 				DA1D5E652143DAF800D7E787 /* Constants.swift in Sources */,
-				DA99198D2152CFB900C27CD4 /* ConsumerTableViewCell.swift in Sources */,
 				DA991984215186C500C27CD4 /* DocumentTableViewCell.swift in Sources */,
 				DA522DDD21480CA1007214D1 /* PasswordToggleVisibilityView.swift in Sources */,
 				DA522DD721469192007214D1 /* UserModel.swift in Sources */,

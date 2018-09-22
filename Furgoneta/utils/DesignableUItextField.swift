@@ -24,6 +24,7 @@ class DesignableUItextField: UITextField {
     }
     
     @IBInspectable var leftPadding: CGFloat = 0
+    @IBInspectable var height: CGFloat = 20
     
     @IBInspectable var leftImage: UIImage? {
         didSet {
@@ -45,9 +46,9 @@ class DesignableUItextField: UITextField {
 //    self.leftView = paddingView
     func updateView(){
         if let image = leftImage {
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: height + 10, height: height))
             leftViewMode = UITextField.ViewMode.always
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: height + 10, height: height))
             imageView.contentMode = .scaleAspectFit
             imageView.image = image
             imageView.tintColor = color

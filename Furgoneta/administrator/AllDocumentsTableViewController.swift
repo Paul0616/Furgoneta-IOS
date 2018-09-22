@@ -15,7 +15,7 @@ class AllDocumentsTableViewController: UITableViewController {
     var documents = [DocumentModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.allowsSelection = false
+        //tableView.allowsSelection = false
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,13 +56,13 @@ class AllDocumentsTableViewController: UITableViewController {
             let cellDocument = tableView.dequeueReusableCell(withIdentifier: "documentsCell", for: indexPath) as! DocumentTableViewCell
             
             switch documents[indexPath.row].typeDocId {
-                case 1:
+                case Constants.DOCUMENT_TYPE_SUPPLY:
                     cellDocument.backgroundColor = UIColor(red:0.84, green:0.88, blue:0.96, alpha:1.0)
-                case 2:
+                case Constants.DOCUMENT_TYPE_CONSUMER:
                     cellDocument.backgroundColor = UIColor(red:0.87, green:0.90, blue:0.87, alpha:1.0)
-                case 3:
+                case Constants.DOCUMENT_TYPE_END_DAY:
                     cellDocument.backgroundColor = UIColor(red:0.89, green:0.80, blue:0.95, alpha:1.0)
-                case 4:
+                case Constants.DOCUMENT_TYPE_INVENTORY:
                     cellDocument.backgroundColor = UIColor(red:0.97, green:0.93, blue:0.85, alpha:1.0)
                 default:
                     print("unknown document type")
@@ -80,6 +80,15 @@ class AllDocumentsTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !documents[indexPath.row].header && documents[indexPath.row].typeDocId != Constants.DOCUMENT_TYPE_END_DAY {
+            self.performSegue(withIdentifier: "showDocuments", sender: self)
+        }
+        if !documents[indexPath.row].header && documents[indexPath.row].typeDocId == Constants.DOCUMENT_TYPE_END_DAY {
+            self.performSegue(withIdentifier: "showEndDay", sender: self)
+        }
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -161,6 +170,22 @@ class AllDocumentsTableViewController: UITableViewController {
             let documentIndex = tableView.indexPathForSelectedRow?.row
         {
             destination.documentTypeId = documents[documentIndex].typeDocId
+            destination.docType = documents[documentIndex].type?.uppercased()
+            destination.documentId = documents[documentIndex].id
+            destination.documentDate = documents[documentIndex].day
+        }
+        if  segue.identifier == "showEndDay",
+            let destination = segue.destination as? EndDayViewController,
+            let documentIndex = tableView.indexPathForSelectedRow?.row
+           
+        {
+             destination.finished = true
+            destination.documentId = documents[documentIndex].id
+            destination.documentDate = documents[documentIndex].day
+//            destination.documentTypeId = documents[documentIndex].typeDocId
+//            destination.docType = documents[documentIndex].type?.uppercased()
+//            destination.documentId = documents[documentIndex].id
+//            destination.documentDate = documents[documentIndex].day
         }
     }
   

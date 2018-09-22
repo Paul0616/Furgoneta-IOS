@@ -10,6 +10,10 @@ import UIKit
 
 class ConsumerTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var um: UILabel!
+    @IBOutlet weak var quantity: UILabel!
+    @IBOutlet weak var product: UILabel!
+    @IBOutlet weak var motivation: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

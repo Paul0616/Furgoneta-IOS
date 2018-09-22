@@ -27,6 +27,8 @@ struct Constants {
     static let FILE_GET_ROLES = "getRoles.php"
     static let FILE_GET_ADMIN_VIEW_DOCS = "getAllDocuments.php"
     static let FILE_GET_DOCUMENT_PRODUCTS = "getDocumentProducts.php"
+    static let FILE_GET_FISA_INCHIDERE = "getDayCloseDoc.php"
+    static let FILE_GET_MONETAR = "getMonetar.php"
     
     static let RESULT_KEY: String = "result"
     static let STATUS_KEY: String = "status"
@@ -52,4 +54,23 @@ struct Constants {
     static let TYPE_DOC_ID_KEY = "tipDocId"
     static let QUANTITY_KEY = "cantitatea"
     static let MOTIVATION_KEY = "motiv"
+    static let CASH_KEY = "numerar"
+    static let CARD_KEY = "card"
+    static let SOLD_KEY = "soldcasa"
+    static let JSON_BANI_1 = "bani_1";
+    static let JSON_BANI_5 = "bani_5";
+    static let JSON_BANI_10 = "bani_10";
+    static let JSON_BANI_50 = "bani_50";
+    static let JSON_LEI_1 = "lei_1";
+    static let JSON_LEI_5 = "lei_5";
+    static let JSON_LEI_10 = "lei_10";
+    static let JSON_LEI_50 = "lei_50";
+    static let JSON_LEI_100 = "lei_100";
+    static let JSON_LEI_200 = "lei_200";
+    static let JSON_LEI_500 = "lei_500";
+    
+    static let DOCUMENT_TYPE_SUPPLY = 1
+    static let DOCUMENT_TYPE_CONSUMER = 2
+    static let DOCUMENT_TYPE_INVENTORY = 4
+    static let DOCUMENT_TYPE_END_DAY = 3
 }
