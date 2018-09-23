@@ -29,6 +29,10 @@ struct Constants {
     static let FILE_GET_DOCUMENT_PRODUCTS = "getDocumentProducts.php"
     static let FILE_GET_FISA_INCHIDERE = "getDayCloseDoc.php"
     static let FILE_GET_MONETAR = "getMonetar.php"
+    static let FILE_GET_TODAY_DOCUMENTS = "getTodayDocById.php"
+    static let FILE_GET_LIST_OF_PRODUCTS = "getProductsByDocType.php"
+    static let FILE_SET_LIST_OF_PRODUCTS = "setProductsByDocNo.php"
+    
     
     static let RESULT_KEY: String = "result"
     static let STATUS_KEY: String = "status"
@@ -44,6 +48,7 @@ struct Constants {
     static let FIXTURE_KEY: String = "inventar"
     static let PRODUCT_NAME_KEY: String = "produs"
     static let LOCATION_NAME_KEY: String = "locatie"
+    static let LOCATION_NAME_KEY1: String = "denumire"
     static let PRODUCT_UNITS_KEY: String = "um"
     static let ID_KEY: String = "id"
     static let PHONE_KEY: String = "telefon"

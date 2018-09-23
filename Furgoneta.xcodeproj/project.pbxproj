@@ -10,6 +10,10 @@
 		732B03EA2B58877EEBE0DFA3 /* Pods_FurgonetaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ADEF5C34ECD10F9ADA4904 /* Pods_FurgonetaUITests.framework */; };
 		A09572C6E218D05179751C36 /* Pods_FurgonetaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC279F4B499C07345E042AB4 /* Pods_FurgonetaTests.framework */; };
 		AB6C6D02B509E41CA06147D9 /* Pods_Furgoneta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B742989BB2A291FD5317AB /* Pods_Furgoneta.framework */; };
+		DA0F680421578D7700D31267 /* TodaysDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F680321578D7700D31267 /* TodaysDocumentsViewController.swift */; };
+		DA0F68062157AB6B00D31267 /* TodayDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F68052157AB6B00D31267 /* TodayDocumentsTableViewCell.swift */; };
+		DA0F680A2157D74B00D31267 /* ManagerAddProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F68092157D74B00D31267 /* ManagerAddProductsTableViewController.swift */; };
+		DA0F680C2157D77A00D31267 /* ManagerAddProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F680B2157D77A00D31267 /* ManagerAddProductsTableViewCell.swift */; };
 		DA1D5E342142670700D7E787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D5E332142670700D7E787 /* AppDelegate.swift */; };
 		DA1D5E362142670700D7E787 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D5E352142670700D7E787 /* MainViewController.swift */; };
 		DA1D5E392142670700D7E787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1D5E372142670700D7E787 /* Main.storyboard */; };
@@ -73,6 +77,10 @@
 		8A4DC4CF294A4F8C69563351 /* Pods-FurgonetaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurgonetaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FurgonetaUITests/Pods-FurgonetaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		94B0E301C37BDD03FA67AEB5 /* Pods-FurgonetaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurgonetaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FurgonetaTests/Pods-FurgonetaTests.release.xcconfig"; sourceTree = "<group>"; };
 		C3A188A1BE9C91142AE97FBB /* Pods-Furgoneta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Furgoneta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Furgoneta/Pods-Furgoneta.release.xcconfig"; sourceTree = "<group>"; };
+		DA0F680321578D7700D31267 /* TodaysDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysDocumentsViewController.swift; sourceTree = "<group>"; };
+		DA0F68052157AB6B00D31267 /* TodayDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDocumentsTableViewCell.swift; sourceTree = "<group>"; };
+		DA0F68092157D74B00D31267 /* ManagerAddProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAddProductsTableViewController.swift; sourceTree = "<group>"; };
+		DA0F680B2157D77A00D31267 /* ManagerAddProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAddProductsTableViewCell.swift; sourceTree = "<group>"; };
 		DA1D5E302142670700D7E787 /* Furgoneta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Furgoneta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1D5E332142670700D7E787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA1D5E352142670700D7E787 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +291,10 @@
 				DA99198A2152CCEE00C27CD4 /* DetailDocumentTableViewCell.swift */,
 				DA991992215506CF00C27CD4 /* EndDayViewController.swift */,
 				DA9919942155905000C27CD4 /* MonetaryViewController.swift */,
+				DA0F680321578D7700D31267 /* TodaysDocumentsViewController.swift */,
+				DA0F68052157AB6B00D31267 /* TodayDocumentsTableViewCell.swift */,
+				DA0F68092157D74B00D31267 /* ManagerAddProductsTableViewController.swift */,
+				DA0F680B2157D77A00D31267 /* ManagerAddProductsTableViewCell.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -513,10 +525,14 @@
 				DA991982215186AF00C27CD4 /* HeaderTableViewCell.swift in Sources */,
 				DA1D5E6E21453D3E00D7E787 /* ProductTableViewCell.swift in Sources */,
 				DA991993215506CF00C27CD4 /* EndDayViewController.swift in Sources */,
+				DA0F680A2157D74B00D31267 /* ManagerAddProductsTableViewController.swift in Sources */,
 				DA9919952155905000C27CD4 /* MonetaryViewController.swift in Sources */,
+				DA0F680C2157D77A00D31267 /* ManagerAddProductsTableViewCell.swift in Sources */,
+				DA0F68062157AB6B00D31267 /* TodayDocumentsTableViewCell.swift in Sources */,
 				DA1D5E6C2145399C00D7E787 /* AddProductsTableViewController.swift in Sources */,
 				DA522DD921469404007214D1 /* UserTableViewCell.swift in Sources */,
 				DA522DD5214690B2007214D1 /* AddUsersTableViewController.swift in Sources */,
+				DA0F680421578D7700D31267 /* TodaysDocumentsViewController.swift in Sources */,
 				DA9919912152D5B500C27CD4 /* DocumentItem.swift in Sources */,
 				DA1D5E6321428F2600D7E787 /* DesignableUItextField.swift in Sources */,
 				DA6A1D6E214EDA68007C145A /* LocationToAssignTableViewCell.swift in Sources */,

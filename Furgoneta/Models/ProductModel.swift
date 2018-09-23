@@ -17,6 +17,7 @@ class ProductModel: NSObject {
     var fixture: Bool
     var productName: String
     var productUnit: String
+    var selected: Bool = false
     
     
     

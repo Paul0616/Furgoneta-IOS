@@ -173,6 +173,7 @@ class AllDocumentsTableViewController: UITableViewController {
             destination.docType = documents[documentIndex].type?.uppercased()
             destination.documentId = documents[documentIndex].id
             destination.documentDate = documents[documentIndex].day
+            destination.finished = true
         }
         if  segue.identifier == "showEndDay",
             let destination = segue.destination as? EndDayViewController,

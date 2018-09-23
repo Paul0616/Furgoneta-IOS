@@ -24,19 +24,26 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     var documentDate: String?
     var finished: Bool?
     var documentItems = [DocumentItem]()
+    var choosenProducts: [Int] = [Int]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         documentTableView.dataSource = self
-        documentTypeLabel.text = docType
+        documentTypeLabel.text = docType?.uppercased()
         documentIdLabel.text = "Nr. " + String(documentId!)
         documentDatelabel.text = " din " + documentDate!
-        
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProductTapped))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolbarItems = [spacer, add]
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.toolbar.isTranslucent = true
+        navigationController?.toolbar.barTintColor = UIColor.orange
+        navigationController?.toolbar.tintColor = UIColor.darkGray
+        navigationController?.setToolbarHidden(finished!, animated: true)
         loadData()
     }
     
@@ -45,24 +52,33 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func addProductTapped(){
+      performSegue(withIdentifier: "addProducts", sender: self)
+    }
+    
     private func loadData(){
         if documentId != nil && documentId != 0 {
             documentItems.removeAll()
+            choosenProducts.removeAll()
             //     activityIndicator.startAnimating()
             let param = [Constants.ID_KEY: documentId] as [String: Int?]
             Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_GET_DOCUMENT_PRODUCTS, parameters: param as Parameters)
                 .responseJSON{(responseData) -> Void in
                     if responseData.result.value != nil {
                         let swiftyJsonVar = JSON(responseData.result.value!)
-                        for i in 0...(swiftyJsonVar.count-1){
-                            let product = swiftyJsonVar[i][Constants.PRODUCT_NAME_KEY].stringValue
-                            let um = swiftyJsonVar[i][Constants.PRODUCT_UNITS_KEY].stringValue
-                            let quantity = swiftyJsonVar[i][Constants.QUANTITY_KEY].doubleValue
-                            let motivation = swiftyJsonVar[i][Constants.MOTIVATION_KEY].stringValue
-                            guard let document = DocumentItem(product: product, um: um, quantity: quantity, motivation: motivation) else {
-                                                                fatalError("Unable to instantiate ProductModel")
+                        if swiftyJsonVar.count > 0 {
+                            for i in 0...(swiftyJsonVar.count-1){
+                                let id = swiftyJsonVar[i][Constants.ID_KEY].intValue
+                                let product = swiftyJsonVar[i][Constants.PRODUCT_NAME_KEY].stringValue
+                                let um = swiftyJsonVar[i][Constants.PRODUCT_UNITS_KEY].stringValue
+                                let quantity = swiftyJsonVar[i][Constants.QUANTITY_KEY].doubleValue
+                                let motivation = swiftyJsonVar[i][Constants.MOTIVATION_KEY].stringValue
+                                self.choosenProducts.append(id)
+                                guard let document = DocumentItem(product: product, um: um, quantity: quantity, motivation: motivation) else {
+                                                                    fatalError("Unable to instantiate ProductModel")
+                                }
+                                self.documentItems += [document]
                             }
-                            self.documentItems += [document]
                         }
                         self.documentTableView.reloadData()
                         // self.activityIndicator.stopAnimating()
@@ -81,19 +97,27 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         cell1?.um.text = documentItems[indexPath.row].um
          cell1?.motivation.text = documentItems[indexPath.row].motivation
         cell1?.motivation.isHidden = !(documentTypeId == Constants.DOCUMENT_TYPE_CONSUMER)
+        self.finished! ? (cell1?.accessoryType = .checkmark) : (cell1?.accessoryType = .disclosureIndicator)
         return cell1!
         //supplyCell.dayDateLabel.text = documents[indexPath.row].day
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if  segue.identifier == "addProducts",
+            let destination = segue.destination as? ManagerAddProductsTableViewController
+        {
+            destination.docTypeId = documentTypeId
+            destination.choosenProducts = choosenProducts
+            destination.documentId = documentId
+        }
     }
-    */
+    
 
 }
