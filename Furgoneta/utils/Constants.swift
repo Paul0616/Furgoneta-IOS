@@ -32,6 +32,8 @@ struct Constants {
     static let FILE_GET_TODAY_DOCUMENTS = "getTodayDocById.php"
     static let FILE_GET_LIST_OF_PRODUCTS = "getProductsByDocType.php"
     static let FILE_SET_LIST_OF_PRODUCTS = "setProductsByDocNo.php"
+    static let FILE_GET_IS_DOC_AVAILABLE = "isDocAvailable.php"
+    static let FILE_SET_NEW_DOCUMENT = "setNewDoc.php"
     
     
     static let RESULT_KEY: String = "result"

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40B302432158BD3E0054FFB8 /* MenuManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B302422158BD3E0054FFB8 /* MenuManagerViewController.swift */; };
+		40B302452158D5D80054FFB8 /* EditProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B302442158D5D80054FFB8 /* EditProductViewController.swift */; };
 		732B03EA2B58877EEBE0DFA3 /* Pods_FurgonetaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ADEF5C34ECD10F9ADA4904 /* Pods_FurgonetaUITests.framework */; };
 		A09572C6E218D05179751C36 /* Pods_FurgonetaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC279F4B499C07345E042AB4 /* Pods_FurgonetaTests.framework */; };
 		AB6C6D02B509E41CA06147D9 /* Pods_Furgoneta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B742989BB2A291FD5317AB /* Pods_Furgoneta.framework */; };
@@ -71,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40B302422158BD3E0054FFB8 /* MenuManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManagerViewController.swift; sourceTree = "<group>"; };
+		40B302442158D5D80054FFB8 /* EditProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductViewController.swift; sourceTree = "<group>"; };
 		43B742989BB2A291FD5317AB /* Pods_Furgoneta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Furgoneta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		493B34AD24ACCB3C0B3C7546 /* Pods-FurgonetaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurgonetaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FurgonetaTests/Pods-FurgonetaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		77BAE4AE3026F6697A2F2479 /* Pods-Furgoneta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Furgoneta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Furgoneta/Pods-Furgoneta.debug.xcconfig"; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 				DA0F68052157AB6B00D31267 /* TodayDocumentsTableViewCell.swift */,
 				DA0F68092157D74B00D31267 /* ManagerAddProductsTableViewController.swift */,
 				DA0F680B2157D77A00D31267 /* ManagerAddProductsTableViewCell.swift */,
+				40B302422158BD3E0054FFB8 /* MenuManagerViewController.swift */,
+				40B302442158D5D80054FFB8 /* EditProductViewController.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				DA0F680A2157D74B00D31267 /* ManagerAddProductsTableViewController.swift in Sources */,
 				DA9919952155905000C27CD4 /* MonetaryViewController.swift in Sources */,
 				DA0F680C2157D77A00D31267 /* ManagerAddProductsTableViewCell.swift in Sources */,
+				40B302452158D5D80054FFB8 /* EditProductViewController.swift in Sources */,
 				DA0F68062157AB6B00D31267 /* TodayDocumentsTableViewCell.swift in Sources */,
 				DA1D5E6C2145399C00D7E787 /* AddProductsTableViewController.swift in Sources */,
 				DA522DD921469404007214D1 /* UserTableViewCell.swift in Sources */,
@@ -544,6 +551,7 @@
 				DA9919802151867D00C27CD4 /* AllDocumentsTableViewController.swift in Sources */,
 				DA1D5E682144FB0C00D7E787 /* MenuAdminViewController.swift in Sources */,
 				DA1D5E342142670700D7E787 /* AppDelegate.swift in Sources */,
+				40B302432158BD3E0054FFB8 /* MenuManagerViewController.swift in Sources */,
 				DA522DCF21467B98007214D1 /* LocationTableViewCell.swift in Sources */,
 				DA1D5E6A214524FE00D7E787 /* AddLocationsTableViewController.swift in Sources */,
 				DA522DD32146814A007214D1 /* LocationModel.swift in Sources */,

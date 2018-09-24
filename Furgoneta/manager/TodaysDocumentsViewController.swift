@@ -33,8 +33,12 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
+    @IBAction func onClickAddDocuments(_ sender: UIBarButtonItem) {
+    }
+    
     @IBAction func onClickChooseLocation(_ sender: Any) {
         animate(toogle: dropDownListLocationTableView.isHidden)
+        
     }
     func animate(toogle: Bool){
         UIView.animate(withDuration: 0.3, animations: {
@@ -57,7 +61,7 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
          navigationController?.setToolbarHidden(true, animated: true)
         userLocations.removeAll()
         todaydocuments.removeAll()
-        let preferences = UserDefaults.standard
+       let preferences = UserDefaults.standard
         if preferences.object(forKey: Constants.USER_ID_KEY) != nil && preferences.object(forKey: Constants.USER_ID_KEY) as! Int != 0 {
             let param = [Constants.ID_KEY: preferences.object(forKey: Constants.USER_ID_KEY)] as! [String: Int]
             Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_GET_USER_LOCATIONS, parameters: param)
@@ -67,26 +71,8 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
                         if swiftyJsonVar.count == 1 {
                             self.chooseLocationButton.setTitle(swiftyJsonVar[0][Constants.LOCATION_NAME_KEY1].stringValue, for: .normal)
                             self.locationId = swiftyJsonVar[0][Constants.LOCATION_NAME_KEY].intValue
-                            let param1 = [Constants.ID_KEY: preferences.object(forKey: Constants.USER_ID_KEY), Constants.LOCATION_NAME_KEY: self.locationId]
-                            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_GET_TODAY_DOCUMENTS, parameters: param1 as Parameters)
-                                .responseJSON{(responseData) -> Void in
-                                    if responseData.result.value != nil {
-                                        let swiftyJsonVar1 = JSON(responseData.result.value!)
-                                        for i in 0...(swiftyJsonVar1.count-1){
-                                            let id = swiftyJsonVar1[i][Constants.ID_KEY].intValue
-                                            let day = swiftyJsonVar1[i][Constants.DAY_KEY].stringValue
-                                            let hour = swiftyJsonVar1[i][Constants.HOUR_KEY].stringValue
-                                            let type = swiftyJsonVar1[i][Constants.TYPE_KEY].stringValue
-                                            let typeId = swiftyJsonVar1[i][Constants.TYPE_DOC_ID_KEY].intValue
-                                            let status = swiftyJsonVar1[i][Constants.STATUS_KEY].intValue
-                                            guard let doc = DocumentModel(header: false, day: day, id: id, hour: hour, type: type, typeDocId: typeId, status: status, location: "") else {
-                                                fatalError("Unable to instantiate ProductModel")
-                                            }
-                                            self.todaydocuments += [doc]
-                                        }
-                                        self.documentsTableView.reloadData()
-                                    }
-                            }
+                            UserDefaults.standard.setValuesForKeys([Constants.LOCATION_NAME_KEY + Constants.ID_KEY: self.locationId])
+                            self.loadLocationTodayDocuments(locationId: self.locationId)
                         }
                         for i in 0...(swiftyJsonVar.count-1){
                             let id = swiftyJsonVar[i][Constants.LOCATION_NAME_KEY].intValue
@@ -103,7 +89,33 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
        
         
     }
-
+    
+    func loadLocationTodayDocuments(locationId: Int) {
+        let preferences = UserDefaults.standard
+        let param1 = [Constants.ID_KEY: preferences.object(forKey: Constants.USER_ID_KEY), Constants.LOCATION_NAME_KEY: locationId]
+        Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_GET_TODAY_DOCUMENTS, parameters: param1 as Parameters)
+            .responseJSON{(responseData) -> Void in
+                if responseData.result.value != nil {
+                    let swiftyJsonVar1 = JSON(responseData.result.value!)
+                    if swiftyJsonVar1.count > 0 {
+                        for i in 0...(swiftyJsonVar1.count-1){
+                            let id = swiftyJsonVar1[i][Constants.ID_KEY].intValue
+                            let day = swiftyJsonVar1[i][Constants.DAY_KEY].stringValue
+                            let hour = swiftyJsonVar1[i][Constants.HOUR_KEY].stringValue
+                            let type = swiftyJsonVar1[i][Constants.TYPE_KEY].stringValue
+                            let typeId = swiftyJsonVar1[i][Constants.TYPE_DOC_ID_KEY].intValue
+                            let status = swiftyJsonVar1[i][Constants.STATUS_KEY].intValue
+                            guard let doc = DocumentModel(header: false, day: day, id: id, hour: hour, type: type, typeDocId: typeId, status: status, location: "") else {
+                                fatalError("Unable to instantiate ProductModel")
+                            }
+                            self.todaydocuments += [doc]
+                        }
+                    }
+                    self.documentsTableView.reloadData()
+                }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         var count:Int = 0
@@ -163,6 +175,8 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
             locationId = userLocations[indexPath.row].id
             chooseLocationButton.setTitle("\(userLocations[indexPath.row].locationName)", for: .normal)
             animate(toogle: false)
+            UserDefaults.standard.setValuesForKeys([Constants.LOCATION_NAME_KEY + Constants.ID_KEY: locationId])
+            loadLocationTodayDocuments(locationId: locationId)
         }
     }
     
