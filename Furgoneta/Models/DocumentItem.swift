@@ -15,18 +15,21 @@ class DocumentItem: NSObject {
     var um: String
     var quantity: Double
     var motivation: String
+    var productId: Int
     
     //MARK: - Initializare
     
     init?(product: String,
           um: String,
           quantity: Double,
-          motivation: String) {
+          motivation: String,
+          id: Int) {
         
         //Initializeaza proprietatile
         self.product = product
         self.um = um
         self.quantity = quantity
         self.motivation = motivation
+        self.productId = id
     }
 }

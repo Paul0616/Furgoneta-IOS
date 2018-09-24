@@ -2853,7 +2853,7 @@ INVENTAR</string>
                                         <connections>
                                             <action selector="okBtn:" destination="MDI-ZH-bmf" eventType="touchUpInside" id="jdL-rg-ks3"/>
                                             <action selector="onClickOk:" destination="Lmh-8x-3QD" eventType="touchUpInside" id="vEJ-jL-p32"/>
-                                            <segue destination="QsU-s7-JBQ" kind="unwind" unwindAction="unwindFromLocationWithSegue:" id="RHf-nN-H1N"/>
+                                            <segue destination="QsU-s7-JBQ" kind="unwind" unwindAction="unwindFromEditProductWithSegue:" id="wio-bb-mgc"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantitatea dorita" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gB-5x-SQB">
@@ -2862,11 +2862,11 @@ INVENTAR</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NQc-cu-JFY">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" placeholder="0.0" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NQc-cu-JFY">
                                         <rect key="frame" x="8" y="74" width="358" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -77,7 +77,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
                                 let quantity = swiftyJsonVar[i][Constants.QUANTITY_KEY].doubleValue
                                 let motivation = swiftyJsonVar[i][Constants.MOTIVATION_KEY].stringValue
                                 self.choosenProducts.append(id)
-                                guard let document = DocumentItem(product: product, um: um, quantity: quantity, motivation: motivation) else {
+                                guard let document = DocumentItem(product: product, um: um, quantity: quantity, motivation: motivation, id: id) else {
                                                                     fatalError("Unable to instantiate ProductModel")
                                 }
                                 self.documentItems += [document]
@@ -148,6 +148,9 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
             destination.documentTypeId = documentTypeId
             destination.quantity = documentItems[index.row].quantity
             destination.productName = documentItems[index.row].product
+            destination.productId = documentItems[index.row].productId
+            destination.docId = documentId
+            destination.quantity = documentItems[index.row].quantity
         }
         
         if  segue.identifier == "modalyEditQtyAndMotiv",
@@ -159,5 +162,28 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    @IBAction func unwindFromEditProduct(segue: UIStoryboardSegue) {
+        
+        if let sourceViewController = segue.source as? EditProductViewController,
+            let quantity = sourceViewController.quantity,
+            let productId = sourceViewController.productId
+        {
+            let param = [Constants.ID_KEY: productId, Constants.TYPE_DOC_ID_KEY: documentId!, Constants.QUANTITY_KEY: quantity] as [String : Any]
+            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_QUANTITY, parameters: param as Parameters)
+                .responseJSON{(responseData) -> Void in
+                    if responseData.result.value != nil {
+                        //  let swiftyJsonVar = JSON(responseData.result.value!)
+                        self.loadData()
+                    }
+            }
+        } else {
+            let myAlert = UIAlertController(title: "Eroare", message: "Cantitatea a fost introdusa gresit", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in
+            
+            })
+            myAlert.addAction(okAction)
+            self.present(myAlert, animated: true, completion: nil)
+        }
+    }
 
 }
