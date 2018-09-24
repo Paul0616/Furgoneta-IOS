@@ -1486,6 +1486,10 @@ user</string>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Bay-Cn-GxO" id="uje-FC-Qlq"/>
+                                    <outlet property="delegate" destination="Bay-Cn-GxO" id="4nC-wr-cBb"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
