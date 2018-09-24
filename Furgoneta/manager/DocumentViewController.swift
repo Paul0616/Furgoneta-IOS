@@ -23,6 +23,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     var documentId: Int?
     var documentDate: String?
     var finished: Bool?
+    var addAction: Bool = false
     var documentItems = [DocumentItem]()
     var choosenProducts: [Int] = [Int]()
     
@@ -31,8 +32,10 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         documentTableView.dataSource = self
         documentTypeLabel.text = docType?.uppercased()
-        documentIdLabel.text = "Nr. " + String(documentId!)
-        documentDatelabel.text = " din " + documentDate!
+        if !addAction {
+            documentIdLabel.text = "Nr. " + String(documentId!)
+            documentDatelabel.text = " din " + documentDate!
+        }
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addProductTapped))
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         toolbarItems = [spacer, add]
@@ -84,6 +87,24 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
                         // self.activityIndicator.stopAnimating()
                     }
             }
+        } else {
+            //print("Adaugare")
+            let preferences = UserDefaults.standard
+            let param = [Constants.TYPE_KEY: documentTypeId, Constants.ID_KEY: preferences.object(forKey: Constants.USER_ID_KEY), Constants.LOCATION_NAME_KEY: preferences.object(forKey: Constants.LOCATION_NAME_KEY+Constants.ID_KEY)]
+            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_NEW_DOCUMENT, parameters: param as Parameters)
+                .responseJSON{(responseData) -> Void in
+                    if responseData.result.value != nil {
+                        let swiftyJsonVar = JSON(responseData.result.value!)
+                        self.documentId = swiftyJsonVar[0][Constants.ID_KEY].intValue
+                        self.addAction = false
+                        self.documentIdLabel.text = "Nr. " + String(self.documentId!)
+                        let date = Date()
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "dd.MM.yyyy"
+                        self.documentDate = formatter.string(from: date)
+                        self.documentDatelabel.text = " din " + self.documentDate!
+                    }
+            }
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,6 +123,9 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         //supplyCell.dayDateLabel.text = documents[indexPath.row].day
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "modalyEditQuantity", sender: self)
+    }
 
     
     // MARK: - Navigation
@@ -111,6 +135,22 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if  segue.identifier == "addProducts",
+            let destination = segue.destination as? ManagerAddProductsTableViewController
+        {
+            destination.docTypeId = documentTypeId
+            destination.choosenProducts = choosenProducts
+            destination.documentId = documentId
+        }
+        if  segue.identifier == "modalyEditQuantity",
+            let destination = segue.destination as? EditProductViewController,
+            let index = documentTableView.indexPathForSelectedRow
+        {
+            destination.documentTypeId = documentTypeId
+            destination.quantity = documentItems[index.row].quantity
+            destination.productName = documentItems[index.row].product
+        }
+        
+        if  segue.identifier == "modalyEditQtyAndMotiv",
             let destination = segue.destination as? ManagerAddProductsTableViewController
         {
             destination.docTypeId = documentTypeId
