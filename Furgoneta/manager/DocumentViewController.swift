@@ -30,7 +30,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        documentTableView.dataSource = self
+        //documentTableView.dataSource = self
         documentTypeLabel.text = docType?.uppercased()
         if !addAction {
             documentIdLabel.text = "Nr. " + String(documentId!)
