@@ -8,11 +8,14 @@
 
 import UIKit
 
+
 class EditProductViewController: UIViewController, UITextFieldDelegate {
 
     var productName: String?
     var quantity: Double?
     var documentTypeId: Int?
+    var productId: Int?
+    var docId: Int?
     
     @IBOutlet weak var productNamelabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -28,6 +31,9 @@ class EditProductViewController: UIViewController, UITextFieldDelegate {
         if productName != nil && productName != "" {
             productNamelabel.text = productName
         }
+        if quantity != nil {
+            quantityTextField.text = String(quantity!)
+        }
         if documentTypeId != nil && documentTypeId != 0 {
             if documentTypeId == 1 {
                 subtitleLabel.text = "Cantitatea dorita:"
@@ -39,9 +45,13 @@ class EditProductViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onClickCancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onClickOk(_ sender: Any) {
+       // let preferences = UserDefaults.standard
+        let qtyString = quantityTextField.text
+        quantity = NumberFormatter().number(from: qtyString!)?.doubleValue
     }
     /*
     // MARK: - Navigation
