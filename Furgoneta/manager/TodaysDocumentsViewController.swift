@@ -56,6 +56,14 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBAction func onClickDelete(_ sender: UIButton) {
         
+        let param = [Constants.ID_KEY: todaydocuments[sender.tag].id, Constants.LOCATION_NAME_KEY: locationId]
+        Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_DEL_DOCUMENT, parameters: param as Parameters)
+            .responseJSON{(responseData) -> Void in
+                if responseData.result.value != nil {
+                    self.loadLocationTodayDocuments(locationId: self.locationId)
+                }
+        }
+       
     }
     override func viewWillAppear(_ animated: Bool) {
          navigationController?.setToolbarHidden(true, animated: true)
@@ -91,6 +99,7 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func loadLocationTodayDocuments(locationId: Int) {
+        todaydocuments.removeAll()
         let preferences = UserDefaults.standard
         let param1 = [Constants.ID_KEY: preferences.object(forKey: Constants.USER_ID_KEY), Constants.LOCATION_NAME_KEY: locationId]
         Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_GET_TODAY_DOCUMENTS, parameters: param1 as Parameters)
@@ -196,6 +205,7 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
             destination.documentId = todaydocuments[button.tag].id
             destination.documentDate = todaydocuments[button.tag].day
             destination.finished = false
+            destination.addAction = false
         }
         if  segue.identifier == "managerEndDayShow",
             let destination = segue.destination as? EndDayViewController,
@@ -204,6 +214,7 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
             destination.finished = false
             destination.documentId = todaydocuments[button.tag].id
             destination.documentDate = todaydocuments[button.tag].day
+            destination.addAction = false
         }
     }
     

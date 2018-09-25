@@ -38,7 +38,7 @@ class EditProductViewController: UIViewController, UITextFieldDelegate {
             if documentTypeId == 1 {
                 subtitleLabel.text = "Cantitatea dorita:"
             }
-            if documentTypeId == 3 {
+            if documentTypeId == 4 {
                 subtitleLabel.text = "Cantitatea gasita la inventar:"
             }
         }
@@ -49,9 +49,7 @@ class EditProductViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onClickOk(_ sender: Any) {
-       // let preferences = UserDefaults.standard
-        let qtyString = quantityTextField.text
-        quantity = NumberFormatter().number(from: qtyString!)?.doubleValue
+   
     }
     /*
     // MARK: - Navigation
@@ -62,7 +60,21 @@ class EditProductViewController: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let qtyString = quantityTextField.text
+        //quantity = NumberFormatter().number(from: qtyString!)?.doubleValue
+        quantity = Double(qtyString!)
+        //print(quantity)
+        if quantity == nil {
+            let myAlert = UIAlertController(title: "Eroare", message: "Cantitatea introdusa gresit", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                myAlert.addAction(okAction)
+                present(myAlert, animated: true, completion: nil)
+            return false
+        } else {
+            return true
+        }
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //hide keyboard
         if textField == quantityTextField {

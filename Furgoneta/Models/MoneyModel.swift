@@ -17,12 +17,13 @@ class MoneyModel: NSObject {
     var pieces: Int
     var textField: UITextField
     var label: UILabel
+    var key: String
    
     //MARK: - Initializare
     
     init?(type: String,
           value: Double,
-          id: Int, textField: UITextField, pieces: Int, label: UILabel) {
+          id: Int, textField: UITextField, pieces: Int, label: UILabel, key: String) {
         
         //Initializeaza proprietatile
         self.value = value
@@ -31,5 +32,6 @@ class MoneyModel: NSObject {
         self.textField = textField
         self.pieces = pieces
         self.label = label
+        self.key = key
     }
 }

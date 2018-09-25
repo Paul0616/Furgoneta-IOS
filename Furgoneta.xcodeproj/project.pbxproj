@@ -41,6 +41,8 @@
 		DA522DDD21480CA1007214D1 /* PasswordToggleVisibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA522DDC21480CA1007214D1 /* PasswordToggleVisibilityView.swift */; };
 		DA522DDF21481319007214D1 /* HideShowPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA522DDE21481319007214D1 /* HideShowPasswordTextField.swift */; };
 		DA522DE121484EA5007214D1 /* RoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA522DE021484EA5007214D1 /* RoleModel.swift */; };
+		DA685A942159261C0033DA51 /* EditConsumerProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA685A932159261C0033DA51 /* EditConsumerProductViewController.swift */; };
+		DA685A96215A4D2F0033DA51 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA685A95215A4D2F0033DA51 /* RequestData.swift */; };
 		DA6A1D6C214EDA3B007C145A /* AssignLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A1D6B214EDA3B007C145A /* AssignLocationTableViewController.swift */; };
 		DA6A1D6E214EDA68007C145A /* LocationToAssignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A1D6D214EDA68007C145A /* LocationToAssignTableViewCell.swift */; };
 		DA9919802151867D00C27CD4 /* AllDocumentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99197F2151867D00C27CD4 /* AllDocumentsTableViewController.swift */; };
@@ -116,6 +118,8 @@
 		DA522DDC21480CA1007214D1 /* PasswordToggleVisibilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordToggleVisibilityView.swift; sourceTree = "<group>"; };
 		DA522DDE21481319007214D1 /* HideShowPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideShowPasswordTextField.swift; sourceTree = "<group>"; };
 		DA522DE021484EA5007214D1 /* RoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleModel.swift; sourceTree = "<group>"; };
+		DA685A932159261C0033DA51 /* EditConsumerProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditConsumerProductViewController.swift; sourceTree = "<group>"; };
+		DA685A95215A4D2F0033DA51 /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
 		DA6A1D6B214EDA3B007C145A /* AssignLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignLocationTableViewController.swift; sourceTree = "<group>"; };
 		DA6A1D6D214EDA68007C145A /* LocationToAssignTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationToAssignTableViewCell.swift; sourceTree = "<group>"; };
 		DA99197F2151867D00C27CD4 /* AllDocumentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDocumentsTableViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				DA0F680B2157D77A00D31267 /* ManagerAddProductsTableViewCell.swift */,
 				40B302422158BD3E0054FFB8 /* MenuManagerViewController.swift */,
 				40B302442158D5D80054FFB8 /* EditProductViewController.swift */,
+				DA685A932159261C0033DA51 /* EditConsumerProductViewController.swift */,
+				DA685A95215A4D2F0033DA51 /* RequestData.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -536,6 +542,7 @@
 				DA0F680C2157D77A00D31267 /* ManagerAddProductsTableViewCell.swift in Sources */,
 				40B302452158D5D80054FFB8 /* EditProductViewController.swift in Sources */,
 				DA0F68062157AB6B00D31267 /* TodayDocumentsTableViewCell.swift in Sources */,
+				DA685A942159261C0033DA51 /* EditConsumerProductViewController.swift in Sources */,
 				DA1D5E6C2145399C00D7E787 /* AddProductsTableViewController.swift in Sources */,
 				DA522DD921469404007214D1 /* UserTableViewCell.swift in Sources */,
 				DA522DD5214690B2007214D1 /* AddUsersTableViewController.swift in Sources */,
@@ -552,6 +559,7 @@
 				DA1D5E682144FB0C00D7E787 /* MenuAdminViewController.swift in Sources */,
 				DA1D5E342142670700D7E787 /* AppDelegate.swift in Sources */,
 				40B302432158BD3E0054FFB8 /* MenuManagerViewController.swift in Sources */,
+				DA685A96215A4D2F0033DA51 /* RequestData.swift in Sources */,
 				DA522DCF21467B98007214D1 /* LocationTableViewCell.swift in Sources */,
 				DA1D5E6A214524FE00D7E787 /* AddLocationsTableViewController.swift in Sources */,
 				DA522DD32146814A007214D1 /* LocationModel.swift in Sources */,

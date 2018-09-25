@@ -31,6 +31,7 @@ class MenuManagerViewController: UIViewController {
         performSegue(withIdentifier: "addDocuments", sender: sender)
     }
     @IBAction func onAddEndday(_ sender: UIButton) {
+        performSegue(withIdentifier: "addEndDay", sender: sender)
     }
     @IBAction func onAddInventory(_ sender: UIButton) {
         performSegue(withIdentifier: "addDocuments", sender: sender)
@@ -96,6 +97,15 @@ class MenuManagerViewController: UIViewController {
             default:
                 print("unknown document type")
             }
+            destination.addAction = true
+            destination.finished = false
+        }
+//        var finished: Bool = false
+//        var documentId: Int?
+//        var documentDate: String?
+        if  segue.identifier == "addEndDay",
+            let destination = segue.destination as? EndDayViewController
+        {
             destination.addAction = true
             destination.finished = false
         }

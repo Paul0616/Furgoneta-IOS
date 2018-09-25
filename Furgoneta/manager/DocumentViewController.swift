@@ -124,7 +124,13 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "modalyEditQuantity", sender: self)
+        if !finished! {
+            if documentTypeId == 2 {
+                performSegue(withIdentifier: "modalyEditQtyAndMotiv", sender: self)
+            } else {
+                performSegue(withIdentifier: "modalyEditQuantity", sender: self)
+            }
+        }
     }
 
     
@@ -154,13 +160,25 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         if  segue.identifier == "modalyEditQtyAndMotiv",
-            let destination = segue.destination as? ManagerAddProductsTableViewController
+            let destination = segue.destination as? EditConsumerProductViewController,
+            let index = documentTableView.indexPathForSelectedRow
         {
-            destination.docTypeId = documentTypeId
-            destination.choosenProducts = choosenProducts
-            destination.documentId = documentId
+            destination.documentTypeId = documentTypeId
+            destination.quantity = documentItems[index.row].quantity
+            destination.productName = documentItems[index.row].product
+            destination.productId = documentItems[index.row].productId
+            destination.docId = documentId
+            destination.quantity = documentItems[index.row].quantity
+            destination.motivation = documentItems[index.row].motivation
         }
     }
+    //MARK: - present messages
+//    func displayAlertMessages(userMessage: String){
+//        let myAlert = UIAlertController(title: "Eroare", message: userMessage, preferredStyle: UIAlertController.Style.alert)
+//        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+//        myAlert.addAction(okAction)
+//        self.present(myAlert, animated: true, completion: nil)
+//    }
     
     @IBAction func unwindFromEditProduct(segue: UIStoryboardSegue) {
         
@@ -176,14 +194,22 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
                         self.loadData()
                     }
             }
-        } else {
-            let myAlert = UIAlertController(title: "Eroare", message: "Cantitatea a fost introdusa gresit", preferredStyle: UIAlertController.Style.alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in
-            
-            })
-            myAlert.addAction(okAction)
-            self.present(myAlert, animated: true, completion: nil)
         }
+        
+        if let sourceViewController = segue.source as? EditConsumerProductViewController,
+            let quantity = sourceViewController.quantity,
+            let productId = sourceViewController.productId,
+            let motivation = sourceViewController.motivation
+        {
+            let param = [Constants.ID_KEY: productId, Constants.TYPE_DOC_ID_KEY: documentId!, Constants.QUANTITY_KEY: quantity, Constants.MOTIVATION_KEY: motivation] as [String : Any]
+            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_QUANTITY, parameters: param as Parameters)
+                .responseJSON{(responseData) -> Void in
+                    if responseData.result.value != nil {
+                        //  let swiftyJsonVar = JSON(responseData.result.value!)
+                        self.loadData()
+                    }
+            }
+        } 
     }
 
 }

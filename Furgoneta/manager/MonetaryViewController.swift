@@ -37,13 +37,16 @@ class MonetaryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var label5B: UILabel!
     @IBOutlet weak var label1B: UILabel!
     @IBOutlet weak var labelTotal: UILabel!
-
+    @IBOutlet weak var TakinkOverBarButton: UIBarButtonItem!
+    
     var money = [MoneyModel]()
     
  //   let textFieldTags = [50000, 20000, 10000, 5000, 1000, 500, 100, 50, 10, 5, 1]
     
-    var finished: Bool = false
+    
+    var adminView: Bool = false
     var documentId: Int?
+    var total: String = "0.0"
     
     var currentTextField: UITextField?
     override func viewDidLoad() {
@@ -71,33 +74,34 @@ class MonetaryViewController: UIViewController, UITextFieldDelegate {
         textField1L.delegate = self
         textField1B.delegate = self
        
-        var m = MoneyModel(type: "500 LEI", value: 500.0, id: 0, textField: textField500L, pieces: 0, label: label500L)
+        var m = MoneyModel(type: "500 LEI", value: 500.0, id: 0, textField: textField500L, pieces: 0, label: label500L, key: Constants.JSON_LEI_500)
         money.append(m!)
-        m = MoneyModel(type: "200 LEI", value: 200.0, id: 1, textField: textField200L, pieces: 0, label: label200L)
+        m = MoneyModel(type: "200 LEI", value: 200.0, id: 1, textField: textField200L, pieces: 0, label: label200L, key: Constants.JSON_LEI_200)
         money.append(m!)
-        m = MoneyModel(type: "100 LEI", value: 100.0, id: 2, textField: textField100L, pieces: 0, label: label100L)
+        m = MoneyModel(type: "100 LEI", value: 100.0, id: 2, textField: textField100L, pieces: 0, label: label100L, key: Constants.JSON_LEI_100)
         money.append(m!)
-        m = MoneyModel(type: "50 LEI", value: 50.0, id: 3, textField: textField50L, pieces: 0, label: label50L)
+        m = MoneyModel(type: "50 LEI", value: 50.0, id: 3, textField: textField50L, pieces: 0, label: label50L, key: Constants.JSON_LEI_50)
         money.append(m!)
-        m = MoneyModel(type: "10 LEI", value: 10.0, id: 4, textField: textField10L, pieces: 0, label: label10L)
+        m = MoneyModel(type: "10 LEI", value: 10.0, id: 4, textField: textField10L, pieces: 0, label: label10L, key: Constants.JSON_LEI_10)
         money.append(m!)
-        m = MoneyModel(type: "5LEI", value: 5.0, id: 5, textField: textField5L, pieces: 0, label: label5L)
+        m = MoneyModel(type: "5LEI", value: 5.0, id: 5, textField: textField5L, pieces: 0, label: label5L, key: Constants.JSON_LEI_5)
         money.append(m!)
-        m = MoneyModel(type: "1 LEU", value: 1.0, id: 6, textField: textField1L, pieces: 0, label: label1L)
+        m = MoneyModel(type: "1 LEU", value: 1.0, id: 6, textField: textField1L, pieces: 0, label: label1L, key: Constants.JSON_LEI_1)
         money.append(m!)
-        m = MoneyModel(type: "50 BANI", value: 0.5, id: 7, textField: textField50B, pieces: 0, label: label50B)
+        m = MoneyModel(type: "50 BANI", value: 0.5, id: 7, textField: textField50B, pieces: 0, label: label50B, key: Constants.JSON_BANI_50)
         money.append(m!)
-        m = MoneyModel(type: "10 BANI", value: 0.1, id: 8, textField: textField10B, pieces: 0, label: label10B)
+        m = MoneyModel(type: "10 BANI", value: 0.1, id: 8, textField: textField10B, pieces: 0, label: label10B, key: Constants.JSON_BANI_10)
         money.append(m!)
-        m = MoneyModel(type: "5 BANI", value: 0.05, id: 9, textField: textField5B, pieces: 0, label: label5B)
+        m = MoneyModel(type: "5 BANI", value: 0.05, id: 9, textField: textField5B, pieces: 0, label: label5B, key: Constants.JSON_BANI_5)
         money.append(m!)
-        m = MoneyModel(type: "1 BAN", value: 0.01, id: 10, textField: textField1B, pieces: 0, label: label1B)
+        m = MoneyModel(type: "1 BAN", value: 0.01, id: 10, textField: textField1B, pieces: 0, label: label1B, key: Constants.JSON_BANI_1)
         money.append(m!)
         
-
+        
         // Do any additional setup after loading the view.
+        TakinkOverBarButton.isEnabled = !adminView
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         loadData()
     }
@@ -114,6 +118,38 @@ class MonetaryViewController: UIViewController, UITextFieldDelegate {
         setTotal()
     }
     
+    
+    @IBAction func onTakingOverClick(_ sender: Any) {
+        let xxx = RequestData.init(lei_500: Int(money[0].textField.text!)!,
+                                   lei_200: Int(money[1].textField.text!)!,
+                                   lei_100: Int(money[2].textField.text!)!,
+                                   lei_50: Int(money[3].textField.text!)!,
+                                   lei_10: Int(money[4].textField.text!)!,
+                                   lei_5: Int(money[5].textField.text!)!,
+                                   lei_1: Int(money[6].textField.text!)!,
+                                   bani_50: Int(money[7].textField.text!)!,
+                                   bani_10: Int(money[8].textField.text!)!,
+                                   bani_5: Int(money[9].textField.text!)!,
+                                   bani_1: Int(money[10].textField.text!)!)
+        let encoder = JSONEncoder()
+        let data = try? encoder.encode(xxx)
+        let str = String(data: data!, encoding: .utf8)
+        let parameter = [Constants.ID_KEY: documentId!, Constants.CASH_KEY: total, Constants.JSON_MONETARY: str!] as [String : Any]
+        Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_MONETARY, parameters: parameter as Parameters)
+            .responseJSON{(responseData) -> Void in
+                if responseData.result.value != nil {
+                    self.dismiss(animated: false, completion: nil)
+                }
+        }
+        
+    }
+    
+    
+    @IBAction func onBackClicked(_ sender: Any) {
+        if((self.presentingViewController) != nil){
+            self.dismiss(animated: false, completion: nil)
+        }
+    }
     func SetKeyboardWithContinueToolbar(sender:UITextField) {
         let doneToolbar:UIToolbar = UIToolbar()
         //currentTextField = field
@@ -201,6 +237,7 @@ class MonetaryViewController: UIViewController, UITextFieldDelegate {
             money[i].label.text = String(partial) + " LEI"
             total += partial
         }
+        self.total = String(total)
         self.labelTotal.text = "Total: " + String(total) + " lei"
     }
     

@@ -35,6 +35,9 @@ struct Constants {
     static let FILE_GET_IS_DOC_AVAILABLE = "isDocAvailable.php"
     static let FILE_SET_NEW_DOCUMENT = "setNewDoc.php"
     static let FILE_SET_QUANTITY = "setQuantity.php"
+    static let FILE_SET_DEL_DOCUMENT = "setDelDocument.php"
+    static let FILE_SET_MONETARY = "setMonetar.php"
+    static let FILE_SET_END_DAY = "setFisaInchidere.php"
     
     
     static let RESULT_KEY: String = "result"
@@ -76,6 +79,7 @@ struct Constants {
     static let JSON_LEI_100 = "lei_100";
     static let JSON_LEI_200 = "lei_200";
     static let JSON_LEI_500 = "lei_500";
+    static let JSON_MONETARY = "monetar"
     
     static let DOCUMENT_TYPE_SUPPLY = 1
     static let DOCUMENT_TYPE_CONSUMER = 2

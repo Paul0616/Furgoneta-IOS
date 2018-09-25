@@ -73,48 +73,11 @@ class ManagerAddProductsTableViewController: UITableViewController {
                 if responseData.result.value != nil {
                 }
         }
-//        do{
-//            let data = try JSONSerialization.data(withJSONObject: hoge, options: [])
-//            let str = String(data: hoge.rawData(), encoding: .utf8)
-//            let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-//            let param = [Constants.ID_KEY: documentId!, Constants.PRODUCT_NAME_KEY: string!] as [String : Any]
-//            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_LIST_OF_PRODUCTS, parameters: param as Parameters)
-//                .responseJSON{(responseData) -> Void in
-//                    if responseData.result.value != nil {
-//                    }
-//            }
-//        }catch{
-//        }
-        
-        
 
-//        let jsonData: NSData
-        
-//        do {
-//            jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: JSONSerialization.WritingOptions()) as NSData
-//            let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue)! as String
-//            print("json string = \(jsonString)")
-//            let param = [Constants.ID_KEY: documentId!, Constants.PRODUCT_NAME_KEY: jsonString] as [String : Any]
-//            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_LIST_OF_PRODUCTS, parameters: param as Parameters)
-//                .responseJSON{(responseData) -> Void in
-//                    if responseData.result.value != nil {
-//                    }
-//            }
-            
-//        } catch _ {
-//            print ("JSON Failure")
-//        }
 
     }
     
-    func readMoreData() {
-        
-        //let newData: NSData = ...
-        
-//        if let newArray = JSON(data:newData).array {
-//            self.hoge += newArray
-//        }
-    }
+   
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

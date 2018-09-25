@@ -180,7 +180,8 @@ class AllDocumentsTableViewController: UITableViewController {
             let documentIndex = tableView.indexPathForSelectedRow?.row
            
         {
-             destination.finished = true
+             destination.adminView = true
+            destination.finished = true
             destination.documentId = documents[documentIndex].id
             destination.documentDate = documents[documentIndex].day
 //            destination.documentTypeId = documents[documentIndex].typeDocId
