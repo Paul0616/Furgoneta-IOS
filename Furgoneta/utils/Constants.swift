@@ -38,6 +38,8 @@ struct Constants {
     static let FILE_SET_DEL_DOCUMENT = "setDelDocument.php"
     static let FILE_SET_MONETARY = "setMonetar.php"
     static let FILE_SET_END_DAY = "setFisaInchidere.php"
+    static let FILE_SET_DOC_STATUS = "setDocumentStatus.php"
+    static let FILE_GET_AVAILABLE_ENDING = "getAvailableEnding.php"
     
     
     static let RESULT_KEY: String = "result"
@@ -80,6 +82,7 @@ struct Constants {
     static let JSON_LEI_200 = "lei_200";
     static let JSON_LEI_500 = "lei_500";
     static let JSON_MONETARY = "monetar"
+    static let JSON_REASON = "reason"
     
     static let DOCUMENT_TYPE_SUPPLY = 1
     static let DOCUMENT_TYPE_CONSUMER = 2

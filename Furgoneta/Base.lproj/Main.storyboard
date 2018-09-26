@@ -756,136 +756,163 @@ user</string>
             <objects>
                 <viewController id="Ky2-U9-UYd" customClass="EndDayViewController" customModule="Furgoneta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gQO-ay-J9e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FISA INCHIDERE ZI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE5-cE-LFS">
-                                <rect key="frame" x="121.33333333333333" y="8" width="171.33333333333337" height="23"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qcw-Cu-eKV">
-                                <rect key="frame" x="141.33333333333331" y="35" width="131.33333333333331" height="17"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itR-qo-rxx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nr. 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbQ-Iv-hvn">
-                                        <rect key="frame" x="0.0" y="0.0" width="29" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="din 07.09.2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp8-9U-q7J">
-                                        <rect key="frame" x="36.999999999999993" y="0.0" width="94.333333333333314" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8v-MH-0cl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="card" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="HZ8-Un-auR" customClass="DesignableUItextField" customModule="Furgoneta" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="289" width="350" height="33"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="height">
+                                                        <real key="value" value="60"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="card"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="rest in casa" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ht8-eA-qj3" customClass="DesignableUItextField" customModule="Furgoneta" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="402" width="350" height="33"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="height">
+                                                        <real key="value" value="60"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="sold"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JJt-NA-rYN">
+                                                <rect key="frame" x="141.33333333333331" y="35" width="131.33333333333331" height="17"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nr. 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPl-MU-0O6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="29" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="din 07.09.2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eei-2e-d3h">
+                                                        <rect key="frame" x="36.999999999999993" y="0.0" width="94.333333333333314" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FISA INCHIDERE ZI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOA-6p-8cJ">
+                                                <rect key="frame" x="121.33333333333333" y="8" width="171.33333333333337" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ef-jC-sPf">
+                                                <rect key="frame" x="157" y="174" width="100" height="35"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="QB7-yy-fbO"/>
+                                                    <constraint firstAttribute="height" constant="35" id="f7h-pC-hie"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Monetar"/>
+                                                <connections>
+                                                    <action selector="onClickMonetary:" destination="Ky2-U9-UYd" eventType="touchUpInside" id="XGz-31-ipj"/>
+                                                    <segue destination="lBb-5i-5Ej" kind="show" identifier="showMonetary" id="flp-wr-jEH"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="cash" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFY-GQ-Xcd" customClass="DesignableUItextField" customModule="Furgoneta" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="111" width="350" height="33"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="cash"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="height">
+                                                        <real key="value" value="60"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="bOA-6p-8cJ" firstAttribute="top" secondItem="R8v-MH-0cl" secondAttribute="top" constant="8" id="B8w-7y-Qdv"/>
+                                            <constraint firstItem="ht8-eA-qj3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R8v-MH-0cl" secondAttribute="leading" constant="32" id="G0x-ST-DnB"/>
+                                            <constraint firstAttribute="height" constant="900" id="GOi-xe-KzQ"/>
+                                            <constraint firstItem="ht8-eA-qj3" firstAttribute="centerX" secondItem="R8v-MH-0cl" secondAttribute="centerX" id="GqT-oi-d2K"/>
+                                            <constraint firstItem="JJt-NA-rYN" firstAttribute="centerX" secondItem="R8v-MH-0cl" secondAttribute="centerX" id="LxS-dd-dtG"/>
+                                            <constraint firstAttribute="trailing" secondItem="ht8-eA-qj3" secondAttribute="trailing" constant="32" id="XSv-BT-W4l"/>
+                                            <constraint firstItem="HZ8-Un-auR" firstAttribute="centerX" secondItem="R8v-MH-0cl" secondAttribute="centerX" id="XXc-vS-f2h"/>
+                                            <constraint firstItem="HZ8-Un-auR" firstAttribute="top" secondItem="4ef-jC-sPf" secondAttribute="bottom" constant="80" id="Zgo-pT-w0P"/>
+                                            <constraint firstItem="QFY-GQ-Xcd" firstAttribute="centerX" secondItem="R8v-MH-0cl" secondAttribute="centerX" id="buv-o7-xP3"/>
+                                            <constraint firstItem="4ef-jC-sPf" firstAttribute="top" secondItem="QFY-GQ-Xcd" secondAttribute="bottom" constant="30" id="dXI-kC-I8B"/>
+                                            <constraint firstAttribute="trailing" secondItem="HZ8-Un-auR" secondAttribute="trailing" constant="32" id="hYv-oh-BIF"/>
+                                            <constraint firstAttribute="trailing" secondItem="QFY-GQ-Xcd" secondAttribute="trailing" constant="32" id="nJ5-YJ-OWd"/>
+                                            <constraint firstItem="4ef-jC-sPf" firstAttribute="centerX" secondItem="R8v-MH-0cl" secondAttribute="centerX" id="nga-L5-BUP"/>
+                                            <constraint firstItem="QFY-GQ-Xcd" firstAttribute="top" secondItem="bOA-6p-8cJ" secondAttribute="bottom" constant="80" id="nm8-GA-ltm"/>
+                                            <constraint firstItem="HZ8-Un-auR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R8v-MH-0cl" secondAttribute="leading" constant="32" id="o6Y-gV-C8c"/>
+                                            <constraint firstItem="JJt-NA-rYN" firstAttribute="top" secondItem="bOA-6p-8cJ" secondAttribute="bottom" constant="4" id="pHJ-fW-ZBA"/>
+                                            <constraint firstItem="ht8-eA-qj3" firstAttribute="top" secondItem="HZ8-Un-auR" secondAttribute="bottom" constant="80" id="r5V-p9-oj6"/>
+                                            <constraint firstItem="bOA-6p-8cJ" firstAttribute="centerX" secondItem="R8v-MH-0cl" secondAttribute="centerX" id="whd-e1-d82"/>
+                                            <constraint firstItem="QFY-GQ-Xcd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R8v-MH-0cl" secondAttribute="leading" constant="32" id="yrh-Ud-Qxo"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                            </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="cash" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mYy-95-SI5" customClass="DesignableUItextField" customModule="Furgoneta" customModuleProvider="target">
-                                <rect key="frame" x="98" y="132" width="218" height="33"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="cash"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                        <real key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="height">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="card" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a6v-so-Zfg" customClass="DesignableUItextField" customModule="Furgoneta" customModuleProvider="target">
-                                <rect key="frame" x="98" y="330" width="218" height="33"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="height">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="card"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="rest in casa" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ydx-Jy-J0k" customClass="DesignableUItextField" customModule="Furgoneta" customModuleProvider="target">
-                                <rect key="frame" x="98" y="443" width="218" height="33"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="height">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="sold"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrt-h0-fPU">
-                                <rect key="frame" x="157" y="215" width="100" height="35"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="KlR-wg-E30"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="pA0-U2-S5h"/>
+                                    <constraint firstItem="R8v-MH-0cl" firstAttribute="leading" secondItem="itR-qo-rxx" secondAttribute="leading" id="Edw-j8-Pb9"/>
+                                    <constraint firstAttribute="bottom" secondItem="R8v-MH-0cl" secondAttribute="bottom" id="Eel-qS-GIi"/>
+                                    <constraint firstAttribute="trailing" secondItem="R8v-MH-0cl" secondAttribute="trailing" id="Uwe-8j-FQ7"/>
+                                    <constraint firstItem="R8v-MH-0cl" firstAttribute="top" secondItem="itR-qo-rxx" secondAttribute="top" id="eY2-RC-IcV"/>
+                                    <constraint firstItem="R8v-MH-0cl" firstAttribute="width" secondItem="itR-qo-rxx" secondAttribute="width" id="smz-N5-c2R"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Monetar"/>
-                                <connections>
-                                    <action selector="onClickMonetary:" destination="Ky2-U9-UYd" eventType="touchUpInside" id="hpp-0a-bML"/>
-                                    <segue destination="lBb-5i-5Ej" kind="show" identifier="showMonetary" id="KCP-En-JfG"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ydx-Jy-J0k" firstAttribute="centerX" secondItem="2cG-hH-VQa" secondAttribute="centerX" id="1Wl-nb-a70"/>
-                            <constraint firstItem="Ydx-Jy-J0k" firstAttribute="width" secondItem="mYy-95-SI5" secondAttribute="width" id="3DR-O9-5Rt"/>
-                            <constraint firstItem="BE5-cE-LFS" firstAttribute="centerX" secondItem="2cG-hH-VQa" secondAttribute="centerX" id="DvE-eF-dmZ"/>
-                            <constraint firstItem="nrt-h0-fPU" firstAttribute="centerX" secondItem="2cG-hH-VQa" secondAttribute="centerX" id="Fa4-BY-1uU"/>
-                            <constraint firstItem="Ydx-Jy-J0k" firstAttribute="top" secondItem="a6v-so-Zfg" secondAttribute="bottom" constant="80" id="ILQ-nA-LKj"/>
-                            <constraint firstItem="mYy-95-SI5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2cG-hH-VQa" secondAttribute="leading" constant="64" id="Jt2-Li-klY"/>
-                            <constraint firstItem="nrt-h0-fPU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2cG-hH-VQa" secondAttribute="leading" constant="64" id="KL5-52-FfT"/>
-                            <constraint firstItem="nrt-h0-fPU" firstAttribute="top" secondItem="mYy-95-SI5" secondAttribute="bottom" constant="50" id="LQH-tQ-2at"/>
-                            <constraint firstItem="Qcw-Cu-eKV" firstAttribute="top" secondItem="BE5-cE-LFS" secondAttribute="bottom" constant="4" id="MfW-2y-f9h"/>
-                            <constraint firstItem="2cG-hH-VQa" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mYy-95-SI5" secondAttribute="trailing" constant="64" id="QoZ-HO-NMS"/>
-                            <constraint firstItem="BE5-cE-LFS" firstAttribute="top" secondItem="2cG-hH-VQa" secondAttribute="top" constant="8" id="WRu-hK-Su7"/>
-                            <constraint firstItem="Qcw-Cu-eKV" firstAttribute="centerX" secondItem="2cG-hH-VQa" secondAttribute="centerX" id="XHU-N2-DUf"/>
-                            <constraint firstItem="a6v-so-Zfg" firstAttribute="top" secondItem="nrt-h0-fPU" secondAttribute="bottom" constant="80" id="XNM-el-DSE"/>
-                            <constraint firstItem="a6v-so-Zfg" firstAttribute="centerX" secondItem="2cG-hH-VQa" secondAttribute="centerX" id="cSO-HA-ezl"/>
-                            <constraint firstItem="2cG-hH-VQa" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nrt-h0-fPU" secondAttribute="trailing" constant="64" id="eSo-mn-OS0"/>
-                            <constraint firstItem="mYy-95-SI5" firstAttribute="top" secondItem="Qcw-Cu-eKV" secondAttribute="bottom" constant="80" id="fVu-2j-FKc"/>
-                            <constraint firstItem="mYy-95-SI5" firstAttribute="centerX" secondItem="2cG-hH-VQa" secondAttribute="centerX" id="ftz-Eb-E9d"/>
-                            <constraint firstItem="a6v-so-Zfg" firstAttribute="width" secondItem="mYy-95-SI5" secondAttribute="width" id="lL9-cL-zTz"/>
+                            <constraint firstItem="2cG-hH-VQa" firstAttribute="bottom" secondItem="itR-qo-rxx" secondAttribute="bottom" id="X85-j2-etR"/>
+                            <constraint firstItem="itR-qo-rxx" firstAttribute="leading" secondItem="2cG-hH-VQa" secondAttribute="leading" id="ZPz-Np-Jed"/>
+                            <constraint firstItem="itR-qo-rxx" firstAttribute="top" secondItem="2cG-hH-VQa" secondAttribute="top" id="gxt-Wb-vU5"/>
+                            <constraint firstItem="itR-qo-rxx" firstAttribute="trailing" secondItem="2cG-hH-VQa" secondAttribute="trailing" id="p7l-ee-u3T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2cG-hH-VQa"/>
                     </view>
+                    <size key="freeformSize" width="414" height="800"/>
                     <connections>
-                        <outlet property="cardTextField" destination="a6v-so-Zfg" id="ai3-H4-alk"/>
-                        <outlet property="cashTextField" destination="mYy-95-SI5" id="aeP-us-JrI"/>
-                        <outlet property="documentDateLabel" destination="Qp8-9U-q7J" id="pDO-c3-EwK"/>
-                        <outlet property="documentIdLabel" destination="LbQ-Iv-hvn" id="sXt-zi-dYs"/>
-                        <outlet property="monetaryButton" destination="nrt-h0-fPU" id="9pT-Lr-sQV"/>
-                        <outlet property="soldTextField" destination="Ydx-Jy-J0k" id="BxH-eW-jSX"/>
+                        <outlet property="cardTextField" destination="HZ8-Un-auR" id="Ujb-FP-vED"/>
+                        <outlet property="cashTextField" destination="QFY-GQ-Xcd" id="wat-HN-8ya"/>
+                        <outlet property="documentDateLabel" destination="Eei-2e-d3h" id="gS0-tS-dEz"/>
+                        <outlet property="documentIdLabel" destination="BPl-MU-0O6" id="Rcp-pG-nVE"/>
+                        <outlet property="monetaryButton" destination="4ef-jC-sPf" id="r8T-O5-MkV"/>
+                        <outlet property="scrollView" destination="itR-qo-rxx" id="akY-Fp-bqm"/>
+                        <outlet property="soldTextField" destination="ht8-eA-qj3" id="dnh-2D-rlg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4t-oR-IoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-168" y="3932"/>
+            <point key="canvasLocation" x="-168.11594202898553" y="3931.79347826087"/>
         </scene>
         <!--MONETAR-->
         <scene sceneID="Fjz-t9-gWu">
@@ -2531,6 +2558,9 @@ locatie</string>
                                                     <state key="normal" title="Finalizare">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onClickChangeStatus:" destination="Mll-H4-XfF" eventType="touchUpInside" id="1oA-LK-jbT"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -3073,8 +3103,8 @@ INVENTAR</string>
     <inferredMetricsTieBreakers>
         <segue reference="pS5-j4-5Ac"/>
         <segue reference="ckK-QF-sNd"/>
-        <segue reference="zaZ-Za-uhI"/>
-        <segue reference="940-XN-KZ3"/>
+        <segue reference="9RG-3y-uiM"/>
+        <segue reference="WFU-h8-qcD"/>
         <segue reference="4SM-pi-hyn"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -53,6 +53,49 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
             performSegue(withIdentifier: "managerEndDayShow", sender: sender)
         }
     }
+    @IBAction func onClickChangeStatus(_ sender: UIButton) {
+        let preferences = UserDefaults.standard
+        if todaydocuments[sender.tag].typeDocId == Constants.DOCUMENT_TYPE_END_DAY {
+            let param = [Constants.ID_KEY: todaydocuments[sender.tag].id, Constants.LOCATION_NAME_KEY: locationId, Constants.USER_ID_KEY: preferences.object(forKey: Constants.USER_ID_KEY)]
+            
+            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_DOC_STATUS, parameters: param as Parameters)
+                .responseJSON{(responseData) -> Void in
+                    if responseData.result.value != nil {
+                        self.loadLocationTodayDocuments(locationId: self.locationId)
+                    }
+            }
+        } else {
+             let param = [Constants.ID_KEY: todaydocuments[sender.tag].id]
+            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_GET_AVAILABLE_ENDING, parameters: param as Parameters)
+                .responseJSON{(responseData) -> Void in
+                    if responseData.result.value != nil {
+                        let swiftyJsonVar = JSON(responseData.result.value!)
+                        if swiftyJsonVar[0][Constants.RESULT_KEY].boolValue {
+                            let param = [Constants.ID_KEY: self.todaydocuments[sender.tag].id, Constants.LOCATION_NAME_KEY: self.locationId, Constants.USER_ID_KEY: preferences.object(forKey: Constants.USER_ID_KEY)]
+                            
+                            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_DOC_STATUS, parameters: param as Parameters)
+                                .responseJSON{(responseData) -> Void in
+                                    if responseData.result.value != nil {
+                                        self.loadLocationTodayDocuments(locationId: self.locationId)
+                                        //MARK: - Aici trebuie adaugata sendFCM daca e fisa de aprovizionare
+                                    }
+                            }
+                        } else {
+                            self.displayAlertMessages(userMessage: swiftyJsonVar[0][Constants.JSON_REASON].stringValue)
+                        }
+                    }
+            }
+        }
+    }
+    
+    
+    func displayAlertMessages(userMessage: String){
+        let myAlert = UIAlertController(title: "Finalizare imposibilă", message: userMessage, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+        myAlert.addAction(okAction)
+        self.present(myAlert, animated: true, completion: nil)
+    }
+    
     
     @IBAction func onClickDelete(_ sender: UIButton) {
         
@@ -160,6 +203,7 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
                 cell1.editButton.isHidden = false
                 cell1.accessoryType = .none
             }
+            cell1.changeStatusButton.tag = indexPath.row
             cell1.editButton.tag = indexPath.row
             cell1.deleteButton.tag = indexPath.row
             switch todaydocuments[indexPath.row].typeDocId {

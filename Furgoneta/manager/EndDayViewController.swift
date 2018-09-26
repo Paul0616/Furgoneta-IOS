@@ -10,13 +10,14 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class EndDayViewController: UIViewController {
+class EndDayViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var monetaryButton: UIButton!
     @IBOutlet weak var cashTextField: DesignableUItextField!
     @IBOutlet weak var cardTextField: DesignableUItextField!
     @IBOutlet weak var soldTextField: DesignableUItextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var documentIdLabel: UILabel!
     @IBOutlet weak var documentDateLabel: UILabel!
     
@@ -25,6 +26,8 @@ class EndDayViewController: UIViewController {
     var documentId: Int?
     var documentDate: String?
     var addAction: Bool = false
+    var textEditFields: [UITextField] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,9 @@ class EndDayViewController: UIViewController {
         let add = UIBarButtonItem(title: "Salveaza", style: UIBarButtonItem.Style.plain, target: self, action: #selector(udateEndDay))
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         toolbarItems = [spacer, add]
+        cardTextField.delegate = self
+        soldTextField.delegate = self
+        textEditFields = [cardTextField, soldTextField]
         // Do any additional setup after loading the view.
     }
     
@@ -52,8 +58,35 @@ class EndDayViewController: UIViewController {
         }
     }
     @objc func udateEndDay(){
-        
+        let param1 = [Constants.ID_KEY: self.documentId!, Constants.CASH_KEY: Double(cashTextField.text!)!, Constants.CARD_KEY: Double(cardTextField.text!)!, Constants.SOLD_KEY: Double(soldTextField.text!)!] as [String : Any]
+        Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_END_DAY, parameters: param1 as Parameters)
+            .responseJSON{(responseData) -> Void in
+                if responseData.result.value != nil {
+                   self.displayAlertMessages(userMessage: "Salvare efectuata")
+                }
+        }
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text == nil || textField.text == "" {
+            textField.text = "0.0"
+        }
+        if let doubleString = Double(textField.text!) {
+            print(doubleString)
+        } else {
+            displayAlertMessages(userMessage: "Valoarea introdusa nu este corectă.")
+            textField.becomeFirstResponder()
+        }
+       
+    }
+    
+    func displayAlertMessages(userMessage: String){
+                let myAlert = UIAlertController(title: "Informare", message: userMessage, preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                myAlert.addAction(okAction)
+                self.present(myAlert, animated: true, completion: nil)
+    }
+    
     func loadDocument(){
         SetContinueToolbar(field: cardTextField)
         SetContinueToolbar(field: soldTextField)
@@ -123,14 +156,17 @@ class EndDayViewController: UIViewController {
         let doneToolbar:UIToolbar = UIToolbar()
         
         if field == cardTextField {
-            doneToolbar.items=[
-                UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelButtonTapped)),
-                UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil),
-                UIBarButtonItem(title: "Continue", style: UIBarButtonItem.Style.plain, target: self, action: #selector(continueButtonTapped))
+            let cancelButton =  UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelButtonTapped(sender:)))
+            cancelButton.tag = 0
+            let continueButton = UIBarButtonItem(title: "Continue", style: UIBarButtonItem.Style.plain, target: self, action: #selector(continueButtonTapped(sender:)))
+            doneToolbar.items=[cancelButton,
+                UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil), continueButton
             ]
         } else {
+            let cancelButton =  UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelButtonTapped(sender:)))
+            cancelButton.tag = 1
             doneToolbar.items=[
-                UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelButtonTapped)),
+                cancelButton,
                 UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
             ]
         }
@@ -139,14 +175,19 @@ class EndDayViewController: UIViewController {
         field.inputAccessoryView = doneToolbar
     }
     
-    @objc func continueButtonTapped() {
-        cardTextField.resignFirstResponder()
+    @objc func continueButtonTapped(sender: UIBarButtonItem) {
         soldTextField.becomeFirstResponder()
-
+        UIView.animate(withDuration: 0.3, animations: {
+            self.scrollView.contentOffset = CGPoint(x: 0, y: 260)
+        })
     }
-    @objc func cancelButtonTapped() {
-        cardTextField.resignFirstResponder()
-        soldTextField.resignFirstResponder()
+    @objc func cancelButtonTapped(sender: UIBarButtonItem) {
+        if sender.tag == 0 {
+            cardTextField.resignFirstResponder()
+        }
+        if sender.tag == 1 {
+            soldTextField.resignFirstResponder()
+        }
     }
 
 }

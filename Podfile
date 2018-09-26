@@ -11,6 +11,7 @@ target 'Furgoneta' do
 
     pod 'Alamofire', '~> 4.7'
     pod 'AlamofireSwiftyJSON' 
+   pod 'Firebase/Messaging'
     
     
   target 'FurgonetaTests' do
