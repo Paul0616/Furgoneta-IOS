@@ -41,6 +41,7 @@ struct Constants {
     static let FILE_SET_DOC_STATUS = "setDocumentStatus.php"
     static let FILE_GET_AVAILABLE_ENDING = "getAvailableEnding.php"
     static let FILE_GET_DRIVER_DOCUMENTS = "getDriverDocuments.php"
+    static let FILE_SET_BOUGHT = "setBought.php"
     
     
     static let RESULT_KEY: String = "result"
