@@ -85,7 +85,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 case "manager":
                         self.performSegue(withIdentifier: "menu_manager", sender: self)
                 case "sofer":
-                        print("sofer")
+                        self.performSegue(withIdentifier: "menu_sofer", sender: self)
                 case .none:
                     print("none")
                 case .some(_):

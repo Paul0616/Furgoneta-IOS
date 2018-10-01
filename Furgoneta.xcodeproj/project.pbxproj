@@ -31,6 +31,8 @@
 		DA1D5E6E21453D3E00D7E787 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D5E6D21453D3E00D7E787 /* ProductTableViewCell.swift */; };
 		DA1D5E7121454FA100D7E787 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D5E7021454FA100D7E787 /* ProductModel.swift */; };
 		DA1D5E7321457B9200D7E787 /* ProductModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D5E7221457B9200D7E787 /* ProductModalViewController.swift */; };
+		DA3FA4A921614912002D961B /* SupplysDriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FA4A821614912002D961B /* SupplysDriverTableViewController.swift */; };
+		DA3FA4AB216149A4002D961B /* SupplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FA4AA216149A4002D961B /* SupplyTableViewCell.swift */; };
 		DA522DCF21467B98007214D1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA522DCE21467B98007214D1 /* LocationTableViewCell.swift */; };
 		DA522DD121467FB9007214D1 /* LocationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA522DD021467FB9007214D1 /* LocationModalViewController.swift */; };
 		DA522DD32146814A007214D1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA522DD22146814A007214D1 /* LocationModel.swift */; };
@@ -109,6 +111,8 @@
 		DA1D5E6D21453D3E00D7E787 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		DA1D5E7021454FA100D7E787 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		DA1D5E7221457B9200D7E787 /* ProductModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModalViewController.swift; sourceTree = "<group>"; };
+		DA3FA4A821614912002D961B /* SupplysDriverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplysDriverTableViewController.swift; sourceTree = "<group>"; };
+		DA3FA4AA216149A4002D961B /* SupplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyTableViewCell.swift; sourceTree = "<group>"; };
 		DA522DCE21467B98007214D1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		DA522DD021467FB9007214D1 /* LocationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModalViewController.swift; sourceTree = "<group>"; };
 		DA522DD22146814A007214D1 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 		DA1D5E322142670700D7E787 /* Furgoneta */ = {
 			isa = PBXGroup;
 			children = (
+				DA3FA4A721614868002D961B /* Driver */,
 				DA9919872152C74100C27CD4 /* manager */,
 				DA1D5E6F21454F8900D7E787 /* Models */,
 				DA1D5E662144F5B000D7E787 /* administrator */,
@@ -293,6 +298,15 @@
 				DA99199821565D0500C27CD4 /* MoneyModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DA3FA4A721614868002D961B /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				DA3FA4A821614912002D961B /* SupplysDriverTableViewController.swift */,
+				DA3FA4AA216149A4002D961B /* SupplyTableViewCell.swift */,
+			);
+			path = Driver;
 			sourceTree = "<group>";
 		};
 		DA9919872152C74100C27CD4 /* manager */ = {
@@ -537,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA99198B2152CCEE00C27CD4 /* DetailDocumentTableViewCell.swift in Sources */,
+				DA3FA4A921614912002D961B /* SupplysDriverTableViewController.swift in Sources */,
 				DA522DDB2146A596007214D1 /* AddUserViewController.swift in Sources */,
 				DA1D5E7321457B9200D7E787 /* ProductModalViewController.swift in Sources */,
 				DA9919862152A14F00C27CD4 /* DocumentModel.swift in Sources */,
@@ -553,6 +568,7 @@
 				DA685A942159261C0033DA51 /* EditConsumerProductViewController.swift in Sources */,
 				DA1D5E6C2145399C00D7E787 /* AddProductsTableViewController.swift in Sources */,
 				DA522DD921469404007214D1 /* UserTableViewCell.swift in Sources */,
+				DA3FA4AB216149A4002D961B /* SupplyTableViewCell.swift in Sources */,
 				DA522DD5214690B2007214D1 /* AddUsersTableViewController.swift in Sources */,
 				DA0F680421578D7700D31267 /* TodaysDocumentsViewController.swift in Sources */,
 				DA9919912152D5B500C27CD4 /* DocumentItem.swift in Sources */,
@@ -753,7 +769,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6GR79EC7E;
 				INFOPLIST_FILE = Furgoneta/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ro.duoline.furgoneta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -771,7 +790,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6GR79EC7E;
 				INFOPLIST_FILE = Furgoneta/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ro.duoline.furgoneta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -789,7 +811,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 85TX4DE8AK;
 				INFOPLIST_FILE = FurgonetaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ro.duoline.FurgonetaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -807,7 +833,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 85TX4DE8AK;
 				INFOPLIST_FILE = FurgonetaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ro.duoline.FurgonetaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -824,7 +854,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 85TX4DE8AK;
 				INFOPLIST_FILE = FurgonetaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ro.duoline.FurgonetaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -841,7 +875,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 85TX4DE8AK;
 				INFOPLIST_FILE = FurgonetaUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ro.duoline.FurgonetaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
