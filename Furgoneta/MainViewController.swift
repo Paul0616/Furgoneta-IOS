@@ -142,6 +142,30 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         loadData(parameters: parameters)
     }
     
+    
+    func loadLocationsToUserDefaults() {
+        if let userId = UserDefaults.standard.object(forKey: Constants.USER_ID_KEY){
+            var locations = [String]()
+            let parameters = [Constants.ID_KEY: userId]
+            Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_GET_USER_LOCATIONS, parameters: parameters)
+                .responseJSON{(responseData) -> Void in
+                if((responseData.result.value) != nil){
+                    let swiftyJsonVar = JSON(responseData.result.value!)
+                    if swiftyJsonVar.count > 0 {
+                        for i in 0...(swiftyJsonVar.count-1){
+
+                            let locationName = swiftyJsonVar[i][Constants.LOCATION_NAME_KEY1].stringValue
+
+                            locations += [locationName]
+                        }
+                    }
+                    let defaults = UserDefaults.standard
+                    defaults.set(locations, forKey: "AllLocations")
+                }
+            }
+        }
+    }
+    
     func loadData(parameters: Dictionary<String, String>){
         Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_GET_LOGIN, parameters: parameters)
             .responseJSON{(responseData) -> Void in
@@ -186,6 +210,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         underlinePassword.isHidden = true
         startButton.setTitle("START", for: UIControl.State.normal)
         logoutButton.isHidden = false
+        loadLocationsToUserDefaults()
     }
     
     func setLogOut(){

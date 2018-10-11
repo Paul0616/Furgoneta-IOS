@@ -76,8 +76,9 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
                             Alamofire.request(Constants.BASE_URL_STRING+"/"+Constants.FILE_SET_DOC_STATUS, parameters: param as Parameters)
                                 .responseJSON{(responseData) -> Void in
                                     if responseData.result.value != nil {
-                                        self.loadLocationTodayDocuments(locationId: self.locationId)
                                         //MARK: - Aici trebuie adaugata sendFCM daca e fisa de aprovizionare
+                                        self.sendFCM(docNumber: self.todaydocuments[sender.tag].id!, docdate: self.todaydocuments[sender.tag].day, location: self.chooseLocationButton.title(for: .normal)!)
+                                        self.loadLocationTodayDocuments(locationId: self.locationId)
                                     }
                             }
                         } else {
@@ -164,8 +165,46 @@ class TodaysDocumentsViewController: UIViewController, UITableViewDelegate, UITa
                         }
                     }
                     self.documentsTableView.reloadData()
+                   
                 }
         }
+    }
+    
+    func sendFCM(docNumber: Int, docdate: String, location: String){
+//        let jsonModel = FCMData.init(to: "/topics/news",
+//                                sound: "default",
+//                                body: String(docNumber) + "/" + docdate,
+//                                title: "FISA DE APROVIZIONARE NOUA",
+//                                location: location)
+//        let encoder = JSONEncoder()
+//        let data = try? encoder.encode(jsonModel)
+//        let str = String(data: data!, encoding: .utf8)
+        let parameters: [String: Any] = [
+            "to" : "/topics/news",
+            "notification":
+                [
+                    "sound" : "default",
+                    "body": String(docNumber) + "/" + docdate,
+                    "title" : "FISA DE APROVIZIONARE NOUA",
+                    "location": location
+                ],
+            "data":
+                [
+                    "sound" : "default",
+                    "body": String(docNumber) + "/" + docdate,
+                    "title" : "FISA DE APROVIZIONARE NOUA",
+                    "location": location
+                ]
+        ]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "Authorization": "key=" + Constants.FCM_TOKEN
+        ]
+        Alamofire.request("https://fcm.googleapis.com/fcm/send", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                print(response)
+        }
+      
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

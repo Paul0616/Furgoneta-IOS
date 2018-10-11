@@ -90,4 +90,6 @@ struct Constants {
     static let DOCUMENT_TYPE_CONSUMER = 2
     static let DOCUMENT_TYPE_INVENTORY = 4
     static let DOCUMENT_TYPE_END_DAY = 3
+    
+    static let FCM_TOKEN = "AAAA2_KUgZo:APA91bF46ZCKHMVnu6V9B7lur069MobrEIwSyRXa1u3jGMy8PBspDZI73-RgrB_HrM9zUJke5Kote7VzlZIuGr7UbIj9VcKqz-g03T1CIU3t4rXH_dq1SrN7S96hIkXyguEDPdNAk3zX"
 }

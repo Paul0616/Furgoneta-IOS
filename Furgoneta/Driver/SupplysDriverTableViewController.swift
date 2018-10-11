@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class SupplysDriverTableViewController: UITableViewController {
 
-    var locations = [String]()
+   var locations = [String]()
     var driverDocuments = [DocumentModel]()
     
     override func viewDidLoad() {
@@ -88,11 +88,7 @@ class SupplysDriverTableViewController: UITableViewController {
                         let swiftyJsonVar = JSON(responseData.result.value!)
                         if swiftyJsonVar.count > 0 {
                             for i in 0...(swiftyJsonVar.count-1){
-                                //let id = swiftyJsonVar[i][Constants.LOCATION_NAME_KEY].intValue
                                 let locationName = swiftyJsonVar[i][Constants.LOCATION_NAME_KEY1].stringValue
-//                                guard let location = LocationModel(id: id, locationName: locationName) else {
-//                                    fatalError("Unable to instantiate ProductModel")
-//                                }
                                 self.locations += [locationName]
                             }
                         }

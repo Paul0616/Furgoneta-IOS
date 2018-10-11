@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // With swizzling disabled you must set the APNs token here.
         // Messaging.messaging().apnsToken = deviceToken
-        Messaging.messaging().subscribe(toTopic: "/topics/news")
+        Messaging.messaging().subscribe(toTopic: "news")
     }
 
 }
@@ -128,8 +128,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
-    func openMessage(message: String){
-        let alertController = UIAlertController(title: "Titlu", message: message, preferredStyle: .alert)
+    func openMessage(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         if let presentingVC = UIApplication.shared.keyWindow?.rootViewController{
             presentingVC.present(alertController, animated: true, completion: nil)
@@ -150,8 +150,15 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Print full message.
         if let body = userInfo["body"] {
-            print(body)
-            openMessage(message: body as! String)
+            if let location = userInfo["location"] {
+                if let title = userInfo["title"] {
+                    let role = UserDefaults.standard.object(forKey: Constants.ROLE_KEY) as! String
+                    let locations = UserDefaults.standard.array(forKey: "AllLocations") as! [String]
+                    if role == "sofer" && locations.contains(location as! String) {
+                        openMessage(title: title as! String, message: body as! String)
+                    }
+                }
+            }
         }
         
         // Change this to your preferred presentation option
@@ -169,8 +176,15 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Print full message.
         if let body = userInfo["body"] {
-            print(body)
-            openMessage(message: body as! String)
+            if let location = userInfo["location"] {
+                if let title = userInfo["title"] {
+                    let role = UserDefaults.standard.object(forKey: Constants.ROLE_KEY) as! String
+                    let locations = UserDefaults.standard.array(forKey: "AllLocations") as! [String]
+                    if role == "sofer" && locations.contains(location as! String) {
+                        openMessage(title: title as! String, message: body as! String)
+                    }
+                }
+            }
         }
         
         completionHandler()
@@ -181,7 +195,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 
 extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
-    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
         
         // TODO: If necessary send token to application server.

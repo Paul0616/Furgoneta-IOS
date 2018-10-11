@@ -58,6 +58,7 @@
 		DA991993215506CF00C27CD4 /* EndDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA991992215506CF00C27CD4 /* EndDayViewController.swift */; };
 		DA9919952155905000C27CD4 /* MonetaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9919942155905000C27CD4 /* MonetaryViewController.swift */; };
 		DA99199921565D0500C27CD4 /* MoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99199821565D0500C27CD4 /* MoneyModel.swift */; };
+		DAB2E584216E78D8000081A9 /* FCMData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB2E583216E78D8000081A9 /* FCMData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		DA1D5E7221457B9200D7E787 /* ProductModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModalViewController.swift; sourceTree = "<group>"; };
 		DA3FA4A821614912002D961B /* SupplysDriverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplysDriverTableViewController.swift; sourceTree = "<group>"; };
 		DA3FA4AA216149A4002D961B /* SupplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplyTableViewCell.swift; sourceTree = "<group>"; };
+		DA499F71216E4A9300C3438A /* Furgoneta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Furgoneta.entitlements; sourceTree = "<group>"; };
 		DA522DCE21467B98007214D1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		DA522DD021467FB9007214D1 /* LocationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModalViewController.swift; sourceTree = "<group>"; };
 		DA522DD22146814A007214D1 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		DA991992215506CF00C27CD4 /* EndDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndDayViewController.swift; sourceTree = "<group>"; };
 		DA9919942155905000C27CD4 /* MonetaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetaryViewController.swift; sourceTree = "<group>"; };
 		DA99199821565D0500C27CD4 /* MoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyModel.swift; sourceTree = "<group>"; };
+		DAB2E583216E78D8000081A9 /* FCMData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMData.swift; sourceTree = "<group>"; };
 		DC279F4B499C07345E042AB4 /* Pods_FurgonetaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FurgonetaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ADEF5C34ECD10F9ADA4904 /* Pods_FurgonetaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FurgonetaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCC79CDD677E9C5DE23365C /* Pods-FurgonetaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurgonetaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FurgonetaUITests/Pods-FurgonetaUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +222,7 @@
 		DA1D5E322142670700D7E787 /* Furgoneta */ = {
 			isa = PBXGroup;
 			children = (
+				DA499F71216E4A9300C3438A /* Furgoneta.entitlements */,
 				DA3FA4A721614868002D961B /* Driver */,
 				DA9919872152C74100C27CD4 /* manager */,
 				DA1D5E6F21454F8900D7E787 /* Models */,
@@ -324,6 +328,7 @@
 				40B302442158D5D80054FFB8 /* EditProductViewController.swift */,
 				DA685A932159261C0033DA51 /* EditConsumerProductViewController.swift */,
 				DA685A95215A4D2F0033DA51 /* RequestData.swift */,
+				DAB2E583216E78D8000081A9 /* FCMData.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -401,6 +406,11 @@
 					DA1D5E2F2142670700D7E787 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					DA1D5E432142670900D7E787 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -557,6 +567,7 @@
 				DA9919862152A14F00C27CD4 /* DocumentModel.swift in Sources */,
 				DA99199921565D0500C27CD4 /* MoneyModel.swift in Sources */,
 				DA1D5E362142670700D7E787 /* MainViewController.swift in Sources */,
+				DAB2E584216E78D8000081A9 /* FCMData.swift in Sources */,
 				DA991982215186AF00C27CD4 /* HeaderTableViewCell.swift in Sources */,
 				DA1D5E6E21453D3E00D7E787 /* ProductTableViewCell.swift in Sources */,
 				DA991993215506CF00C27CD4 /* EndDayViewController.swift in Sources */,
@@ -765,6 +776,7 @@
 			baseConfigurationReference = 77BAE4AE3026F6697A2F2479 /* Pods-Furgoneta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Furgoneta/Furgoneta.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6GR79EC7E;
@@ -786,6 +798,7 @@
 			baseConfigurationReference = C3A188A1BE9C91142AE97FBB /* Pods-Furgoneta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Furgoneta/Furgoneta.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6GR79EC7E;
